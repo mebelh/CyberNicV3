@@ -1,0 +1,29 @@
+.advantages {
+  // grid-area: advantages;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: linear-gradient(to right, #00273ab9, #00273ad3), url("./../../img/advantagesBg.jpg");
+  background-size: cover;
+
+  &__item {
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    font-size: 70px;
+    color: whitesmoke;
+  }
+
+  p {
+    margin-left: 10px;
+    color: whitesmoke;
+    font-family: 'caveat';
+    text-transform: uppercase;
+  }
+}

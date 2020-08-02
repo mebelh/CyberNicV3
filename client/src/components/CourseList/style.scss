@@ -1,0 +1,60 @@
+.course {
+
+  background-color: #000;
+  box-shadow: 0 0 10px #00000077;
+  overflow: hidden;
+  position: relative;
+
+  * {
+    transition: all ease 0.3s;
+  }
+
+  p {
+    position: absolute;
+    font-size: 60px;
+    font-family: harry;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    margin-top: -30px;
+
+    text-shadow: 1px 1px 5px #000;
+
+  }
+
+
+
+  &__img {
+    height: 20em;
+
+    position: relative;
+
+    background-color: #000000;
+    background-position: center;
+    background-size: 100%;
+
+    opacity: .6;
+
+  }
+
+  &-list {
+    display: grid;
+    margin: 1em 0 1em;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &:hover {
+    p {
+      transform: scale(1.2);
+      text-decoration: none;
+    }
+
+
+
+    &>div {
+      filter: blur(3px) grayscale(20%);
+      transform: scale(1.3);
+    }
+  }
+}

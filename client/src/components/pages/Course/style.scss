@@ -1,0 +1,13 @@
+.Course {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: auto 400px;
+
+  &__view {
+    margin-bottom: 1em;
+
+    &-ReactPlayer {
+      margin-bottom: 1em;
+    }
+  }
+}

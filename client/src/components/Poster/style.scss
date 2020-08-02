@@ -1,0 +1,22 @@
+
+
+.poster {
+  // grid-area: poster;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 500px;
+  background-size: cover;
+  background-position: top right;
+  background: url("./../../img/zashita.png");
+
+  p {
+    color: white;
+    font-size: 100px;
+    font-family: harry;
+    transform: translateY(50px);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #248ffa3f;
+  }
+}

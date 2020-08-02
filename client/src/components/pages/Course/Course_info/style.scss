@@ -1,0 +1,17 @@
+.course_info {
+  margin-top: 0.7em;
+
+  display: grid;
+  grid-template-columns: 1fr 400px;
+
+  &>:first-child {
+    height: 400px;
+  }
+
+  // grid-template-rows: 1fr;
+  // grid-template-rows: auto;
+
+  // grid-template-areas: 
+  //   "inviteHeader inviteHeader"
+  //   "infoCourse sidemenu";
+}
