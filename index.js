@@ -57,6 +57,13 @@ app.use(userMiddleware);
 app.use("/courses", coursesRoute);
 app.use("/auth", authRoute);
 
+if (process.env.NODE_ENV === "production") {
+    app.use("/", express.static(path.join(__dirname, "client", "build")));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    });
+}
+
 // const User = require("./models/user");
 // const bcrypt = require("bcrypt");
 

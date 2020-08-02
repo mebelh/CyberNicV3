@@ -47,11 +47,7 @@ export default function App() {
                             <Home />
                         </Route>
 
-                        <Route
-                            path="/course/:id"
-                            component={Course}
-                            test={"asdasd"}
-                        />
+                        <Route path="/course/:id" component={Course} />
 
                         <Route path={"/auth/login"} component={SignIn} />
                         <Route path={"/auth/register"} component={SignUp} />

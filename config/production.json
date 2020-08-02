@@ -1,0 +1,5 @@
+{
+    "port": "80",
+    "mongoUri": "mongodb+srv://artem:12345@cluster0.6bskz.mongodb.net/CyberIz?retryWrites=true&w=majority",
+    "baseUri": "http://cyberizbushka.ru/"
+}

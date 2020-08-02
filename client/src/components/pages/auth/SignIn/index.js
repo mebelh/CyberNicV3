@@ -26,7 +26,7 @@ export default function SignIn() {
 
     const checkLogin = async (e) => {
         e.preventDefault();
-        fetch("http://localhost:3001/auth/login/adm", {
+        fetch("/auth/login/adm", {
             method: "POST",
             headers: {
                 Accept: "application/json",

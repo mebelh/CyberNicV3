@@ -47,11 +47,11 @@ router.post("/login", async (req, res) => {
             req.session.user = candidate;
             req.session.isAuthentificated = true;
             req.session.save(() => {
-                res.redirect("http://localhost:3000");
+                res.redirect("/");
             });
         }
     } else {
-        res.redirect("http://localhost:3000/auth/login");
+        res.redirect("/");
     }
 });
 
@@ -82,7 +82,7 @@ router.post("/register", async (req, res) => {
 
             await user.save();
 
-            res.redirect("http://localhost:3000/auth/login");
+            res.redirect("/");
         }
     } catch (e) {
         console.log(e);

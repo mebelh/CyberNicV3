@@ -9,10 +9,7 @@ export default function SignIn() {
     return (
         <div className="SignUp">
             <div className="formBgc">
-                <form
-                    action="http://localhost:3001/auth/register"
-                    method="POST"
-                >
+                <form action="/auth/register" method="POST">
                     <Name />
                     <Email />
                     <Password />

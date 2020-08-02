@@ -9,7 +9,7 @@ export default function CourseList() {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3001/courses/all", {
+        fetch("/courses/all", {
             method: "GET",
             headers: {
                 Accept: "application/json",

@@ -16,7 +16,7 @@ export default function Course({ match }) {
     const [lecture, setLecture] = useState("");
 
     useEffect(() => {
-        fetch(`http://localhost:3001/courses/${courseId}/${user.login}`, {
+        fetch(`/courses/${courseId}/${user.login}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
