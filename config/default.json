@@ -1,4 +1,5 @@
 {
     "port": "3001",
-    "mongoUri": "mongodb+srv://artem:12345@cluster0.6bskz.mongodb.net/CyberIz?retryWrites=true&w=majority"
+    "mongoUri": "mongodb+srv://artem:12345@cluster0.6bskz.mongodb.net/CyberIz?retryWrites=true&w=majority",
+    "baseUri": "http://localhost:3001/"
 }
