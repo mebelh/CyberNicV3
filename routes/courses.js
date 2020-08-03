@@ -34,7 +34,7 @@ router.post("/add", async (req, res) => {
         });
         await newCourse.save();
     } else {
-        res.redirect("http://localhost:3000/auth/login");
+        res.redirect("/auth/login");
     }
 });
 

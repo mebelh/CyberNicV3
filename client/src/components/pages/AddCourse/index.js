@@ -10,7 +10,7 @@ export default function AddCourse() {
     };
 
     const fetchCourse = async (e) => {
-        await fetch("http://localhost:3001/courses/add", {
+        await fetch("/courses/add", {
             method: "POST",
             headers: {
                 Accept: "application/json",
