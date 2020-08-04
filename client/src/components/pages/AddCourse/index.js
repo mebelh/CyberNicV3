@@ -24,13 +24,7 @@ export default function AddCourse() {
     };
 
     return (
-        <form
-            className="addCourse"
-            onKeyPress={(e) => {
-                // e.key === "Enter" && e.preventDefault();
-            }}
-            onSubmit={fetchCourse}
-        >
+        <form className="addCourse" onSubmit={fetchCourse}>
             <div className="addCourse__left">
                 <h2>Добавить курс:</h2>
                 <label>
@@ -89,17 +83,6 @@ export default function AddCourse() {
                         name="courseNameColor"
                         onChange={({ target }) => {
                             onInfAdd("courseNameColor", target.value);
-                        }}
-                    />
-                </label>
-                <label>
-                    <span>Цвет фона:</span>
-                    <input
-                        type="color"
-                        required
-                        name="backgroundColor"
-                        onChange={({ target }) => {
-                            onInfAdd("backgroundColor", target.value);
                         }}
                     />
                 </label>

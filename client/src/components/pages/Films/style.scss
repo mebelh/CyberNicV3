@@ -4,6 +4,10 @@
   grid-template-columns: 2fr 1fr;
   column-gap: 1em;
 
+  * {
+    word-break: break-all;
+  }
+
   &__list li {
     cursor: pointer;
   }

@@ -10,6 +10,7 @@ export default function Subheader() {
             <div className="adminHeader">
                 <a href="/admin/users">Пользователи</a>
                 <a href="/admin/addCourse">Добавить курс</a>
+                <a href="/admin/addfilm">Добавить фильм</a>
             </div>
         );
     } else {

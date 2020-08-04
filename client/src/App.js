@@ -13,6 +13,7 @@ import Users from "./components/admin/Users";
 import Films from "./components/pages/Films";
 import AdminHeader from "./components/admin/AdminHeader";
 import AddCourse from "./components/pages/AddCourse";
+import AddFilm from "./components/pages/AddFilm";
 
 import { Context } from "./context";
 
@@ -57,6 +58,7 @@ export default function App() {
                             component={AddCourse}
                         />
                         <Route path={"/admin/users"} component={Users} />
+                        <Route path={"/admin/addfilm"} component={AddFilm} />
                         {/* <Route path={'/about'} component={About} /> */}
                         {/* <Route path={'/lectures'} component={Lectures} /> */}
                         {/* <Route path={'/library'} component={Libriary} /> */}
