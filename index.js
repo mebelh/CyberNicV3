@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 
 const coursesRoute = require("./routes/courses");
 const authRoute = require("./routes/auth");
+const filmsRoute = require("./routes/films");
 
 const MONGO_URI = config.get("mongoUri");
 
@@ -56,6 +57,7 @@ app.use(userMiddleware);
 
 app.use("/courses", coursesRoute);
 app.use("/auth", authRoute);
+app.use("/films", filmsRoute);
 
 if (process.env.NODE_ENV === "production") {
     app.use("/", express.static(path.join(__dirname, "client", "build")));

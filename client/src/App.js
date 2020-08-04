@@ -10,7 +10,7 @@ import SignIn from "./components/pages/auth/SignIn";
 import SignUp from "./components/pages/auth/SignUp";
 import SignOut from "./components/auth/SignOut";
 import Users from "./components/admin/Users";
-// import Films from "./components/pages/courses/Films";
+import Films from "./components/pages/Films";
 import AdminHeader from "./components/admin/AdminHeader";
 import AddCourse from "./components/pages/AddCourse";
 
@@ -60,7 +60,7 @@ export default function App() {
                         {/* <Route path={'/about'} component={About} /> */}
                         {/* <Route path={'/lectures'} component={Lectures} /> */}
                         {/* <Route path={'/library'} component={Libriary} /> */}
-                        {/* <Route path={"/films"} component={Films} /> */}
+                        <Route path={"/films"} component={Films} />
                     </Switch>
                 </BrowserRouter>
                 <Footer />

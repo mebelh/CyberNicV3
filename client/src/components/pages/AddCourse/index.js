@@ -27,7 +27,7 @@ export default function AddCourse() {
         <form
             className="addCourse"
             onKeyPress={(e) => {
-                e.key === "Enter" && e.preventDefault();
+                // e.key === "Enter" && e.preventDefault();
             }}
             onSubmit={fetchCourse}
         >
