@@ -1,0 +1,65 @@
+.sideMenu {
+  width: calc(400px - 1em);
+  margin-left: 1em;
+
+  .card-header>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      color: white;
+
+      strong {
+        margin-left: .3em;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  .list-group-item {
+    background-color: #E2E8E4;
+    border: 1px solid #00000011;
+    border-radius: 0 !important;
+    cursor: pointer;
+  }
+
+  .card {
+    &-header {
+      background-color: #006C84;
+    }
+  }
+
+  .btn-link {
+    color: #ffffff;
+    font-weight: 500;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.lecture {
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    text-decoration: none;
+
+    &>* {
+      color: #c0c0c0;
+      text-decoration: none;
+    }
+  }
+}
+
+.lecture__name,
+.lecture__duration {
+  color: #666666;
+}
+
+
+.lecture__name {
+  margin-left: 30px;
+}

@@ -1,0 +1,18 @@
+@media only screen and (max-width: 768px){
+  .poster{
+    display: none;
+  }
+  .advantages {
+    display: none;
+  }
+  .footer {
+    display: none;
+  }
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+
+  .course p {
+    font-size: 40px;
+  }
+}

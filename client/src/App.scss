@@ -1,0 +1,71 @@
+
+
+.App {
+  width: 1200px;
+  margin: 5px auto;
+}
+
+@media only screen and (max-width: 768px){
+  .App {
+    width: 600px;
+  }
+  .header {
+    padding: 20px 5px;
+
+    &_left-part > * {
+      margin-right: 0px;
+    }
+  
+    &_right-part > * {
+      margin-left: 0px;
+    }
+  }
+  .logo {
+    display: none;
+  }
+  .greetings {
+    display: none;
+  }
+  .footer {
+    display: none;
+  }
+}
+
+@media only screen and(max-width: 400px){
+  .App {
+    width: 300px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+  src: url('fonts/HarryPotter.ttf');
+  font-family: harry;
+}
+
+@font-face {
+  src: url(fonts/Caveat-Bold.ttf);
+  font-family: caveat;
+}
+
+

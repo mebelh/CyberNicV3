@@ -1,0 +1,22 @@
+.user {
+  .list-group-item {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 1fr;
+    align-items: center;
+
+  }
+
+  &>:first-child {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #002d8d
+  }
+
+
+
+  // >span {
+  //   padding: 8px 4px;
+  //   border-left: 1px solid black;
+  //   border-bottom: 1px solid black;
+  // }
+}

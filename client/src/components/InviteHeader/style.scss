@@ -1,0 +1,34 @@
+
+.nameOfLecture {
+  font-size: 50px; 
+  color: whitesmoke;
+  grid-area: name;
+}
+
+.enrollBtn {
+  padding: 20px;
+  background: rgb(25, 108, 216);
+  color: whitesmoke;
+  border: none;
+  border-radius: 2px;
+  width: 180px;
+  height: 60px;
+  grid-area: enroll;
+  align-self: end;
+}
+
+.video {
+  grid-area: video;
+  // margin-right: inherit;
+  
+}
+
+.courseHeader {
+  display: grid;
+  background-image: linear-gradient(-45deg, #dff7ff,#33ccff);
+  padding: 40px 60px;
+  grid-template-columns: auto 360px;
+  grid-template-areas: 
+    "name video"
+    "enroll video";
+}

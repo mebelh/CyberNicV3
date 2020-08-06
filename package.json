@@ -1,0 +1,32 @@
+{
+    "name": "cybernicv3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "cross-env NODE_ENV=production node index.js",
+        "server": "cross-env NODE_ENV=development nodemon index.js",
+        "client": "npm run start --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\" ",
+        "client:install": "npm install --prefix client",
+        "client:build": "npm run build --prefix client"
+    },
+    "author": "Memet Artem",
+    "license": "ISC",
+    "devDependencies": {
+        "express": "^4.17.1"
+    },
+    "dependencies": {
+        "ansi-to-react": "^6.0.7",
+        "bcrypt": "^5.0.0",
+        "body-parser": "^1.19.0",
+        "concurrently": "^5.2.0",
+        "config": "^3.3.1",
+        "connect-mongodb-session": "^2.3.3",
+        "cross-env": "^7.0.2",
+        "express-session": "^1.17.1",
+        "mongoose": "^5.9.27",
+        "nodemon": "^2.0.4",
+        "react-iframe": "^1.8.0"
+    }
+}

@@ -1,0 +1,24 @@
+.SignIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+  background: linear-gradient(45deg,#aacff3, #248ffa);
+    .formBgc{
+      background-color: #fff;
+      padding: 50px;
+      border-radius: 10px;
+    }
+    form{
+    display: flex;
+    flex-direction: column;
+    label{
+      display: flex;
+      justify-content: space-between;
+      span{
+        margin-right: 1em;
+      }
+    }
+  }
+}

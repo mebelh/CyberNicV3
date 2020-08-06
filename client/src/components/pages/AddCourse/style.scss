@@ -1,0 +1,46 @@
+.addCourse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
+  margin-top: 1em;
+
+  &__right {
+    margin-left: 1em;
+    align-items: center;
+    justify-content: center;
+
+    &__btn {
+      margin-top: 1em;
+    }
+  }
+
+  &__left {
+
+    * {
+      font-weight: 500;
+    }
+
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0 0 .5em;
+      height: 3em;
+      border: 1px solid #0000006c;
+      border-radius: .5em;
+
+      input {
+        border-radius: .5em;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding-left: .5em;
+        width: 50%;
+        height: 100%;
+        border: none;
+        border-left: 1px solid #0000006c;
+      }
+    }
+  }
+}

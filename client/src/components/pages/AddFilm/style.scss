@@ -1,0 +1,13 @@
+.addFilm {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin: 1em 0 1em;
+
+    &__form {
+        grid-column: 2/3;
+
+        .input-group {
+            margin-bottom: 1em;
+        }
+    }
+}
