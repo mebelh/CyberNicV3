@@ -28,6 +28,7 @@ export default function Course({ match }) {
             setCourse(course);
             setLecture(`${course.linkOnTrialVideo}`);
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const onVideoChange = (link) => {
@@ -43,26 +44,26 @@ export default function Course({ match }) {
             <Loading />
         </div>
     ) : (
-        <div className="Course">
-            <div className="Course__view">
-                <ReactPlayer
-                    className="Course__view-ReactPlayer react-player"
-                    url={lecture}
-                    width="100%"
-                    height="400px"
-                    controls={true}
-                />
-                <InfoCourse
-                    className="Info_course"
-                    shortDescription={course.shortDescription}
-                    description={course.description}
+            <div className="Course">
+                <div className="Course__view">
+                    <ReactPlayer
+                        className="Course__view-ReactPlayer react-player"
+                        url={lecture}
+                        width="100%"
+                        height="400px"
+                        controls={true}
+                    />
+                    <InfoCourse
+                        className="Info_course"
+                        shortDescription={course.shortDescription}
+                        description={course.description}
+                    />
+                </div>
+                <SideMenu
+                    className="SideMenu"
+                    modules={course.modules}
+                    onVideoChange={onVideoChange}
                 />
             </div>
-            <SideMenu
-                className="SideMenu"
-                modules={course.modules}
-                onVideoChange={onVideoChange}
-            />
-        </div>
-    );
+        );
 }

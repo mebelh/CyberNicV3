@@ -22,6 +22,7 @@ export default function Users() {
             return setShowUsers(tempArr);
         }
         setShowUsers(users);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchFilter]);
 
     useEffect(() => {
@@ -54,23 +55,23 @@ export default function Users() {
             <Loading />
         </div>
     ) : (
-        <React.Fragment>
-            <div className="Users">
-                <UsersSearch onSearchFilterChange={onSearchFilterChange} />
-                <div className="">
-                    <ul className="user list-group">
-                        <li className="list-group-item">
-                            <span>Имя</span>
-                            <span>Почта</span>
-                            <span>Статус</span>
-                        </li>
-                        <UsersList
-                            users={showUsers}
-                            toggleUserStatus={toggleUserStatus}
-                        />
-                    </ul>
+            <React.Fragment>
+                <div className="Users">
+                    <UsersSearch onSearchFilterChange={onSearchFilterChange} />
+                    <div className="">
+                        <ul className="user list-group">
+                            <li className="list-group-item">
+                                <span>Имя</span>
+                                <span>Почта</span>
+                                <span>Статус</span>
+                            </li>
+                            <UsersList
+                                users={showUsers}
+                                toggleUserStatus={toggleUserStatus}
+                            />
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </React.Fragment>
-    );
+            </React.Fragment>
+        );
 }

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 
-export default function Lecture({ onLacturesChange, num }) {
+export default function Lecture({ onLecturesChange, num }) {
     const [lecture, setLecture] = useState({});
 
-    const onLactureChange = (key, label) => {
+    const onLectureChange = (key, label) => {
         setLecture({ ...lecture, [key]: label });
     };
 
     useEffect(() => {
-        onLacturesChange(num, lecture);
+        onLecturesChange(num, lecture);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lecture]);
 
     return (
@@ -21,7 +23,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLactureChange("name", target.value);
+                        onLectureChange("name", target.value);
                     }}
                 />
             </div>
@@ -32,7 +34,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLactureChange("duration", target.value);
+                        onLectureChange("duration", target.value);
                     }}
                 />
             </div>
@@ -43,7 +45,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLactureChange("link", target.value);
+                        onLectureChange("link", target.value);
                     }}
                 />
             </div>

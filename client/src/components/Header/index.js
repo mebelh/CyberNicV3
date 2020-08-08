@@ -24,8 +24,8 @@ const DropdownBtn = ({ login }) => {
                         Выйти
                     </Dropdown.Item>
                 ) : (
-                    <></>
-                )}
+                        <></>
+                    )}
             </DropdownButton>
         </div>
     );
@@ -82,8 +82,8 @@ export default function Header() {
                 />
             </div>
         ) : (
-            <></>
-        );
+                <></>
+            );
     };
 
     return (

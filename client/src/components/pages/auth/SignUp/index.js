@@ -15,6 +15,7 @@ export default function SignIn() {
                     <Password />
                     <SubmitBtn text="Войти" />
                 </form>
+                <a href="http://localhost:3000/auth/login">Уже зарегистрированны? Войдите.</a>
             </div>
         </div>
     );

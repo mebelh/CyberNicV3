@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, /*useCallback*/ } from "react";
 import ReactPlayer from "react-player";
 import "./style.scss";
 import Loading from "components/Loading";
@@ -34,6 +34,27 @@ export default function Films() {
         });
     };
 
+    const Films = () => (
+        <div className="films">
+            <ReactPlayer
+                className="films__player"
+                url={film.url}
+                height="400px"
+                width="100%"
+                controls={true}
+            />
+
+            <ul class="films__list list-group">{filmsListUpdate()}</ul>
+        </div>
+    )
+
+    const Spinner = () => (
+        <div className="loading">
+            <Loading />
+        </div>
+    )
+
+
     useEffect(async () => {
         const films = await fetch("/films/all", {
             method: "GET",
@@ -47,21 +68,6 @@ export default function Films() {
         setFilm({ url: filmsList[0].url, activeId: 0 });
     }, []);
 
-    return !films.length ? (
-        <div className="loading">
-            <Loading />
-        </div>
-    ) : (
-        <div className="films">
-            <ReactPlayer
-                className="films__player"
-                url={film.url}
-                height="400px"
-                width="100%"
-                controls={true}
-            />
 
-            <ul class="films__list list-group">{filmsListUpdate()}</ul>
-        </div>
-    );
+    return !films.length ? <Spinner /> : <Films />
 }

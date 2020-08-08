@@ -12,6 +12,7 @@ export default function ModuleGroupe({ num = 1, onInfAdd }) {
 
     useEffect(() => {
         onInfAdd("modules", modules);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [modules]);
 
     num = +num ? num : 1;
