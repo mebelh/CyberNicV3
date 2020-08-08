@@ -43,6 +43,7 @@ router.get("/elbibl", (req, res) => {
         "ElBiblio",
         "index.html"
     );
+    
     fs.createReadStream(index).pipe(res);
     console.log("Адрес: ", filePath);
 
