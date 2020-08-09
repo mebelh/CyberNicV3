@@ -5,8 +5,7 @@ import Password from "../authComponents/Password";
 import SubmitBtn from "../authComponents/SubmitBtn";
 
 import { Context } from "../../../../context";
-
-// import Message from "./../../message";
+import { useHttp } from "hooks/http.hook";
 
 export default function SignIn() {
     const { onUserLogin } = useContext(Context);
@@ -15,6 +14,15 @@ export default function SignIn() {
         login: "",
         password: "",
     });
+
+    const { reqest, error, clearError, loading } = useHttp();
+
+    const reqestHandler = async () => {
+        try {
+            const data = await reqest("/auth/login", "POST", user);
+            console.log(user);
+        } catch (error) {}
+    };
 
     const onLoginChange = (login) => {
         setUser({ ...user, login });
@@ -26,20 +34,23 @@ export default function SignIn() {
 
     const checkLogin = async (e) => {
         e.preventDefault();
-        fetch("/auth/login/adm", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({ ...user }),
-        }).then(async (res) => {
-            const user = await res.json();
-            onUserLogin(user);
-            if (user.ok) {
-                window.location.replace("/");
-            }
-        });
+
+        reqestHandler();
+
+        // fetch("/auth/login/adm", {
+        //     method: "POST",
+        //     headers: {
+        //         Accept: "application/json",
+        //         "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify({ ...user }),
+        // }).then(async (res) => {
+        //     const user = await res.json();
+        //     onUserLogin(user);
+        //     if (user.ok) {
+        //         window.location.replace("/");
+        //     }
+        // });
     };
 
     return (
