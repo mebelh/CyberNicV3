@@ -90,3 +90,9 @@
 .lecture__name {
   margin-left: 30px;
 }
+
+@media (max-width: 1400px) {
+  .sideMenu {
+    width: auto;
+  }
+}

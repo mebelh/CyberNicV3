@@ -6,7 +6,7 @@ export default function Email({ onLoginChange = () => {} }) {
             <span>Email:</span>
             <input
                 type="text"
-                placeholder="Enter email"
+                placeholder="Введите email"
                 name="login"
                 onChange={({ target }) => {
                     onLoginChange(target.value);

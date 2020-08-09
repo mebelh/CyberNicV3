@@ -1,21 +1,28 @@
 .advantages {
-  // grid-area: advantages;
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+
   justify-content: space-evenly;
   background-image: linear-gradient(to right, #00273ab9, #00273ad3), url("./../../img/advantagesBg.jpg");
   background-size: cover;
+  text-align: center;
+
+  & .container {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__item {
-    margin: 30px;
+    // margin: 30px;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     p {
-      margin: 0;
+      margin: .5rem 0 0 0;
     }
   }
 
@@ -25,7 +32,6 @@
   }
 
   p {
-    margin-left: 10px;
     color: whitesmoke;
     font-family: 'caveat';
     text-transform: uppercase;

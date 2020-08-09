@@ -1,39 +1,45 @@
+// .App {
+//   width: 1200px;
+//   margin: 5px auto;
+// }
 
-
-.App {
-  width: 1200px;
-  margin: 5px auto;
+.container {
+  max-width: 80%;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
   .App {
     width: 600px;
   }
+
   .header {
     padding: 20px 5px;
 
-    &_left-part > * {
+    &_left-part>* {
       margin-right: 0px;
     }
-  
-    &_right-part > * {
+
+    &_right-part>* {
       margin-left: 0px;
     }
   }
+
   .logo {
     display: none;
   }
+
   .greetings {
     display: none;
   }
+
   .footer {
     display: none;
   }
 }
 
-@media only screen and(max-width: 400px){
+@media only screen and(max-width: 400px) {
   .App {
-    width: 300px;
+    width: 100%;
   }
 }
 
@@ -67,5 +73,3 @@
   src: url(fonts/Caveat-Bold.ttf);
   font-family: caveat;
 }
-
-

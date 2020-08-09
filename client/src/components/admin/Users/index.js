@@ -55,7 +55,7 @@ export default function Users() {
         </div>
     ) : (
         <React.Fragment>
-            <div className="Users">
+            <div className="Users container">
                 <UsersSearch onSearchFilterChange={onSearchFilterChange} />
                 <div className="">
                     <ul className="user list-group">

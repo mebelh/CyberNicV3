@@ -12,26 +12,28 @@ import "./style.scss";
 export default function Advantages() {
     return (
         <div className="advantages">
-            <div className="advantages__item">
-                <FontAwesomeIcon
-                    icon={faUserGraduate}
-                    className="advantages__icon"
-                />
-                <p>Полезный курс лекций по защите </p>
-            </div>
-            <div className="advantages__item">
-                <FontAwesomeIcon
-                    icon={faYoutube}
-                    className="advantages__icon"
-                />{" "}
-                <p>Сотни научно-популярных фильмов </p>
-            </div>
-            <div className="advantages__item">
-                <FontAwesomeIcon
-                    icon={faBookReader}
-                    className="advantages__icon"
-                />{" "}
-                <p>Большая библиотека учебных пособий </p>
+            <div className="container">
+                <div className="advantages__item">
+                    <FontAwesomeIcon
+                        icon={faUserGraduate}
+                        className="advantages__icon"
+                    />
+                    <p>Полезный курс лекций по защите </p>
+                </div>
+                <div className="advantages__item">
+                    <FontAwesomeIcon
+                        icon={faYoutube}
+                        className="advantages__icon"
+                    />{" "}
+                    <p>Сотни научно-популярных фильмов </p>
+                </div>
+                <div className="advantages__item">
+                    <FontAwesomeIcon
+                        icon={faBookReader}
+                        className="advantages__icon"
+                    />{" "}
+                    <p>Большая библиотека учебных пособий </p>
+                </div>
             </div>
         </div>
     );

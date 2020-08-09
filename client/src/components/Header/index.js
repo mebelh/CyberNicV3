@@ -90,7 +90,7 @@ export default function Header() {
         <div className="header">
             <div className="header_left-part">
                 <Logo className="logo" path={logoPath} />
-                <DropdownBtn className="btn header__btn" login={true} />
+                <DropdownBtn className="btn header__btn" login={user.ok} />
             </div>
             <SignButtons />
             {user.ok ? <Greetings name={user.name || user.login} /> : <></>}

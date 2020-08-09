@@ -5,6 +5,8 @@
   height: 1.5rem;
   background-color: #4f8ace;
 
+  margin-bottom: 1rem;
+
   a {
     color: whitesmoke;
     text-decoration: none;
@@ -14,5 +16,12 @@
     &:last-child {
       border: 0;
     }
+  }
+}
+
+@media (max-width: 400px) {
+  .adminHeader {
+    height: 3rem;
+    text-align: center;
   }
 }

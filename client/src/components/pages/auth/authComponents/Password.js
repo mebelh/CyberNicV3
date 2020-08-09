@@ -3,7 +3,7 @@ import React from "react";
 export default function Password({ onPasswordChange = () => {} }) {
     return (
         <label htmlFor="password">
-            <span>Password:</span>
+            <span>Пароль:</span>
             <input
                 type="password"
                 placeholder="Password"

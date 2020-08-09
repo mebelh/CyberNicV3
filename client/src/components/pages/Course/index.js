@@ -37,13 +37,12 @@ export default function Course({ match }) {
             <Loading />
         </div>
     ) : (
-        <div className="Course">
+        <div className="Course container">
             <div className="Course__view">
                 <ReactPlayer
                     className="Course__view-ReactPlayer react-player"
                     url={lecture.link}
                     width="100%"
-                    height="400px"
                     controls={true}
                 />
                 <InfoCourse

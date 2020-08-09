@@ -4,6 +4,7 @@
   justify-content: space-between;
   padding: 20px 30px;
 
+
   &_left-part,
   &_right-part {
     display: flex;
@@ -16,6 +17,12 @@
 
   &_right-part>* {
     margin-left: 42px;
+  }
+
+  &_right-part {
+    button {
+      margin-left: 1rem;
+    }
   }
 
   .greetings strong {

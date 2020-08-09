@@ -30,7 +30,7 @@
         background-position: center;
         background-size: 100%;
 
-        opacity: .05;
+        opacity: .2;
     }
 
     &-list {
@@ -53,7 +53,27 @@
     }
 }
 
-.loading {
-    display: flex;
-    justify-content: center;
+@media (max-width: 1400px) {
+    .course-list.container {
+        max-width: 90%;
+    }
+
+    .course {
+        &__img {
+            height: 20em;
+        }
+    }
+}
+
+
+@media (max-width: 400px) {
+    .course-list.container {
+        max-width: 100%;
+    }
+
+    .course {
+        &__img {
+            height: 12rem;
+        }
+    }
 }

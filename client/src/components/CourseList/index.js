@@ -25,7 +25,7 @@ export default function CourseList() {
         </div>
     ) : (
         <>
-            <div className="course-list">
+            <div className="course-list container">
                 {courses.map((e, index) => {
                     return (
                         <Link to={`/course/${e.link}`} key={index}>
