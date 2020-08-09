@@ -3,6 +3,7 @@
 .sideMenu {
   width: calc(400px - 1em);
   margin-left: 1em;
+
   .card-header>div {
     display: flex;
     justify-content: space-between;
@@ -44,6 +45,7 @@
 .lecture {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
   &:hover {
     text-decoration: none;
@@ -72,6 +74,7 @@
 .active {
   background-color: $primary-gray !important;
   border-color: $primary-gray !important;
+
   >*>* {
     color: #eee !important;
   }
