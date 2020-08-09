@@ -7,7 +7,7 @@
   background: linear-gradient(45deg,#aacff3, #248ffa);
     .formBgc{
       background-color: #fff;
-      padding: 50px;
+      padding: 50px 50px 20px 50px;
       border-radius: 10px;
     }
     form{
@@ -21,4 +21,10 @@
       }
     }
   }
+}
+
+.sign-link {
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
 }

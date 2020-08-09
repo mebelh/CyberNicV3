@@ -3,9 +3,14 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   column-gap: 1em;
-
   * {
     word-break: break-all;
+  }
+
+  &__list {
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
   }
 
   &__list li {

@@ -15,12 +15,14 @@ export default function Module({ onModuleChange, num }) {
 
     useEffect(() => {
         onModuleChange(module, num);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [module]);
 
     useEffect(() => {
         if (numOfLectures <= 1) {
             setNumOfLectures(1);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [numOfLectures]);
 
     return (

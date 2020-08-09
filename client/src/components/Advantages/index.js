@@ -24,7 +24,7 @@ export default function Advantages() {
                     icon={faYoutube}
                     className="advantages__icon"
                 />{" "}
-                <p>Сотни научно-популярных фильмов </p>
+                <p>Десятки научно-популярных фильмов </p>
             </div>
             <div className="advantages__item">
                 <FontAwesomeIcon

@@ -1,9 +1,11 @@
+@import 'variables';
+
 .footer {
   grid-area: footer;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #3168a5;
+  background: $primary-blue-dark;
   color: #fff;
   padding: 10px;
 
@@ -36,7 +38,7 @@
     .dev-link {
       display: flex;
       flex-direction: row;
-      text-shadow: 0 0 3px #050a0c;
+      text-shadow: 0 0 2px #050a0c;
 
 
       &:hover * {

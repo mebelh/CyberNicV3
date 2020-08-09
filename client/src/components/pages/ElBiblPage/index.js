@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, {/* useState */ } from "react";
 import Iframe from "react-iframe";
 
-import Ansi from "ansi-to-react";
+// import Ansi from "ansi-to-react";
 
 // import elbipPath from "../../../../public/ElBiblio/index.html";
 
@@ -10,7 +10,8 @@ import Ansi from "ansi-to-react";
 import "./style.scss";
 
 const ElBibl = () => {
-    const [bibl, setBibl] = useState("");
+    // const [bibl, setBibl] = useState("");
+
     // fetch("/elbiblio/index.html", {
     //     method: "GET",
     //     headers: {

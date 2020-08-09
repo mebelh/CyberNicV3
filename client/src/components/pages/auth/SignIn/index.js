@@ -65,6 +65,7 @@ export default function SignIn() {
                     <Email onLoginChange={onLoginChange} />
                     <Password onPasswordChange={onPasswordChange} />
                     <SubmitBtn text="Войти" />
+                    <a className="sign-link" href="http://localhost:3000/auth/register" >Нет аккаунта? Зарегистрируйтесь!</a>
                 </form>
             </div>
         </div>

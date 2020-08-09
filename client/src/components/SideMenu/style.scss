@@ -1,7 +1,8 @@
+@import 'variables';
+
 .sideMenu {
   width: calc(400px - 1em);
   margin-left: 1em;
-
   .card-header>div {
     display: flex;
     justify-content: space-between;
@@ -26,7 +27,7 @@
 
   .card {
     &-header {
-      background-color: #006C84;
+      background-color: $primary-blue;
     }
   }
 
@@ -48,7 +49,7 @@
     text-decoration: none;
 
     &>* {
-      color: #c0c0c0;
+      color: #dbdbdb;
       text-decoration: none;
     }
   }
@@ -62,4 +63,16 @@
 
 .lecture__name {
   margin-left: 30px;
+}
+
+.lecture {
+  display: flex;
+}
+
+.active {
+  background-color: $primary-gray !important;
+  border-color: $primary-gray !important;
+  >*>* {
+    color: #eee !important;
+  }
 }
