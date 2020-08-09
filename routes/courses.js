@@ -39,24 +39,11 @@ router.post("/add", async (req, res) => {
 });
 
 router.get("/all", async (req, res) => {
-    const courses = await Course.find();
-    res.send(
-        JSON.stringify(
-            courses.map(
-                ({
-                    courseName,
-                    link,
-                    backgroundImageLink,
-                    courseNameColor,
-                }) => ({
-                    courseName,
-                    link,
-                    backgroundImageLink,
-                    courseNameColor,
-                })
-            )
-        )
+    const courses = await Course.find().select(
+        "courseName link backgroundImageLink courseNameColor"
     );
+
+    res.send(JSON.stringify(courses));
 });
 
 router.get("/:id/:userLogin", async (req, res) => {

@@ -57,7 +57,7 @@ app.use(function (req, res, next) {
 
 app.use(userMiddleware);
 
-app.use("/courses", coursesRoute);
+app.use("/api/courses", coursesRoute);
 app.use("/auth", authRoute);
 app.use("/films", filmsRoute);
 app.use("/admin", adminRoute);

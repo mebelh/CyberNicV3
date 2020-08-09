@@ -6,6 +6,7 @@ import SideMenu from "components/SideMenu";
 
 import "./style.scss";
 import Loading from "components/Loading";
+import { useHttp } from "hooks/http.hook";
 
 export default function Course({ match }) {
     const courseId = match.params.id;
@@ -14,29 +15,22 @@ export default function Course({ match }) {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
-    const [lecture, setLecture] = useState("");
+    const [lecture, setLecture] = useState({});
+
+    const { reqest } = useHttp();
 
     useEffect(() => {
-        fetch(`/courses/${courseId}/${user.login}`, {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "content-type": "application/json",
-            },
-        }).then(async (e) => {
-            const course = await e.json();
-            setCourse(course);
-            setLecture(`${course.linkOnTrialVideo}`);
+        reqest(`/api/courses/${courseId}/${user.login}`, "GET").then((c) => {
+            setCourse(c);
+            setLecture({ link: c.linkOnTrialVideo, idActiveLecture: 0 });
         });
     }, []);
 
-    const onVideoChange = (link) => {
+    const onVideoChange = (link, idActiveLecture) => {
         if (link) {
-            setLecture(link);
+            setLecture({ link, idActiveLecture });
         }
     };
-
-    console.log(lecture);
 
     return !course ? (
         <div className="loading">
@@ -47,7 +41,7 @@ export default function Course({ match }) {
             <div className="Course__view">
                 <ReactPlayer
                     className="Course__view-ReactPlayer react-player"
-                    url={lecture}
+                    url={lecture.link}
                     width="100%"
                     height="400px"
                     controls={true}
@@ -62,6 +56,7 @@ export default function Course({ match }) {
                 className="SideMenu"
                 modules={course.modules}
                 onVideoChange={onVideoChange}
+                idActiveLecture={lecture.idActiveLecture}
             />
         </div>
     );

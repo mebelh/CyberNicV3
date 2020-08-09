@@ -3,23 +3,33 @@ import "./style.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-export default function SideMenu({ modules, onVideoChange }) {
+export default function SideMenu({ modules, onVideoChange, idActiveLecture }) {
     const AddLectureInModule = ({ lectures }) => {
-        return lectures.map((el, index) => (
-            <div className="list-group" key={index}>
-                <li
-                    className="list-group-item"
-                    onClick={() => {
-                        onVideoChange(el.link);
-                    }}
-                >
-                    <div className="lecture">
-                        <div className="lecture__name">{el.name}</div>
-                        <div className="lecture__duration">{el.duration}</div>
-                    </div>
-                </li>
+        return (
+            <div className="list-group">
+                {lectures.map((el, index) => {
+                    let clazz = `list-group-item${
+                        idActiveLecture === index ? " active" : ""
+                    }`;
+                    return (
+                        <li
+                            className={clazz}
+                            onClick={() => {
+                                onVideoChange(el.link, index);
+                            }}
+                            key={index}
+                        >
+                            <div className="lecture">
+                                <div className="lecture__name">{el.name}</div>
+                                <div className="lecture__duration">
+                                    {el.duration}
+                                </div>
+                            </div>
+                        </li>
+                    );
+                })}
             </div>
-        ));
+        );
     };
 
     const AddModulesInSideMenu = ({ modules = [] }) => {

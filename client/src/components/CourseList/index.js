@@ -4,22 +4,20 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 import Loading from "components/Loading";
 
+import { useHttp } from "hooks/http.hook";
+
 export default function CourseList() {
     // Получение списка курсов
 
     const [courses, setCourses] = useState([]);
 
+    const { reqest } = useHttp();
+
     useEffect(() => {
-        fetch("/courses/all", {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "content-type": "application/json",
-            },
-        }).then(async (e) => {
-            setCourses(await e.json());
-        });
+        reqest("/api/courses/all", "GET").then((d) => setCourses(d));
     }, []);
+
+    // Пока список курсов пуст рисуем спинер, потом возвращаем список курсов
 
     return !courses.length ? (
         <div className="loading">
@@ -28,9 +26,9 @@ export default function CourseList() {
     ) : (
         <>
             <div className="course-list">
-                {courses.map((e) => {
+                {courses.map((e, index) => {
                     return (
-                        <Link to={`/course/${e.link}`}>
+                        <Link to={`/course/${e.link}`} key={index}>
                             <div className="course">
                                 <div
                                     className="course__img"
