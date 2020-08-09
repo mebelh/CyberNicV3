@@ -1,8 +1,9 @@
 .course {
-    background-color: #000;
+    background-color: #19293d;
     box-shadow: 0 0 6px #11376898;
     overflow: hidden;
     position: relative;
+    border: 1px solid #d4d4d4;
 
     * {
         transition: all ease 0.3s;
@@ -29,7 +30,7 @@
         background-position: center;
         background-size: 100%;
 
-        opacity: 0.6;
+        opacity: .05;
     }
 
     &-list {
@@ -45,7 +46,7 @@
             text-decoration: none;
         }
 
-        & > div {
+        &>div {
             filter: blur(3px) grayscale(20%);
             transform: scale(1.3);
         }
