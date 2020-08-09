@@ -15,14 +15,14 @@ export default function SignIn() {
         password: "",
     });
 
-    const { reqest, error, clearError, loading } = useHttp();
+    // const { reqest, error, clearError, loading } = useHttp();
 
-    const reqestHandler = async () => {
-        try {
-            const data = await reqest("/auth/login", "POST", user);
-            console.log(user);
-        } catch (error) {}
-    };
+    // const reqestHandler = async () => {
+    //     try {
+    //         const data = await reqest("/auth/login", "POST", user);
+    //         console.log(user);
+    //     } catch (error) {}
+    // };
 
     const onLoginChange = (login) => {
         setUser({ ...user, login });
@@ -35,22 +35,22 @@ export default function SignIn() {
     const checkLogin = async (e) => {
         e.preventDefault();
 
-        reqestHandler();
+        // reqestHandler();
 
-        // fetch("/auth/login/adm", {
-        //     method: "POST",
-        //     headers: {
-        //         Accept: "application/json",
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify({ ...user }),
-        // }).then(async (res) => {
-        //     const user = await res.json();
-        //     onUserLogin(user);
-        //     if (user.ok) {
-        //         window.location.replace("/");
-        //     }
-        // });
+        fetch("/auth/login/adm", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({ ...user }),
+        }).then(async (res) => {
+            const user = await res.json();
+            onUserLogin(user);
+            if (user.ok) {
+                window.location.replace("/");
+            }
+        });
     };
 
     return (
@@ -65,7 +65,12 @@ export default function SignIn() {
                     <Email onLoginChange={onLoginChange} />
                     <Password onPasswordChange={onPasswordChange} />
                     <SubmitBtn text="Войти" />
-                    <a className="sign-link" href="http://localhost:3000/auth/register" >Нет аккаунта? Зарегистрируйтесь!</a>
+                    <a
+                        className="sign-link"
+                        href="http://localhost:3000/auth/register"
+                    >
+                        Нет аккаунта? Зарегистрируйтесь!
+                    </a>
                 </form>
             </div>
         </div>
