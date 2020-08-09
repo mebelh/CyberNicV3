@@ -8,59 +8,19 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .App {
-    width: 600px;
+
+  .container {
+    padding: 0;
   }
 
-  .header {
-    padding: 20px 5px;
-
-    &_left-part>* {
-      margin-right: 0px;
-    }
-
-    &_right-part>* {
-      margin-left: 0px;
-    }
-  }
-
-  .logo {
-    display: none;
-  }
-
-  .greetings {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
 }
 
 @media only screen and(max-width: 400px) {
   .App {
     width: 100%;
+    margin: 0 auto;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

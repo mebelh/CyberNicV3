@@ -30,3 +30,28 @@
     font-size: 1.1rem;
   }
 }
+
+@media (max-width: 400px) {
+  .header {
+
+    padding: 1rem .5rem 0;
+
+    justify-content: space-between;
+
+    &_left-part {
+      &>* {
+        margin: 0;
+      }
+
+      & button {
+        margin: 1rem 0 0 0;
+      }
+
+      flex-direction: column;
+
+      .greetings {
+        text-align: center;
+      }
+    }
+  }
+}

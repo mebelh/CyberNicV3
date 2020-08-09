@@ -38,24 +38,22 @@ export default function Course({ match }) {
         </div>
     ) : (
         <div className="Course container">
-            <div className="Course__view">
-                <ReactPlayer
-                    className="Course__view-ReactPlayer react-player"
-                    url={lecture.link}
-                    width="100%"
-                    controls={true}
-                />
-                <InfoCourse
-                    className="Info_course"
-                    shortDescription={course.shortDescription}
-                    description={course.description}
-                />
-            </div>
+            <ReactPlayer
+                className="Course__view-ReactPlayer react-player"
+                url={lecture.link}
+                width="100%"
+                controls={true}
+            />
             <SideMenu
                 className="SideMenu"
                 modules={course.modules}
                 onVideoChange={onVideoChange}
                 idActiveLecture={lecture.idActiveLecture}
+            />{" "}
+            <InfoCourse
+                className="Info_course"
+                shortDescription={course.shortDescription}
+                description={course.description}
             />
         </div>
     );

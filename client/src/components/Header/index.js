@@ -93,7 +93,7 @@ export default function Header() {
                 <DropdownBtn className="btn header__btn" login={user.ok} />
             </div>
             <SignButtons />
-            {user.ok ? <Greetings name={user.name || user.login} /> : <></>}
+            {user.ok && <Greetings name={user.name || user.login} />}
         </div>
     );
 }

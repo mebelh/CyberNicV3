@@ -1,13 +1,40 @@
-@media only screen and (max-width: 768px){
-  .poster{
-    display: none;
+@media only screen and (max-width: 768px) {
+  .poster {
+    min-height: 10rem;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+
+
+    span {
+      margin: 0;
+
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 0;
+    }
   }
+
   .advantages {
-    display: none;
+    &__icon {
+      font-size: 3rem;
+    }
+
+    .container {
+
+      max-width: 100%;
+
+      p {
+        font-size: .7rem;
+      }
+
+    }
+
   }
-  .footer {
-    display: none;
-  }
+
+
   .course-list {
     grid-template-columns: 1fr;
   }
