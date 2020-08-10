@@ -91,10 +91,10 @@ router.post("/register", async (req, res) => {
     }
 });
 
-router.get("/logout", (req, res) => {
-    req.session.destroy(() => {
-        res.redirect("/auth/login");
-    });
-});
+// router.get("/logout", (req, res) => {
+//     req.session.destroy(() => {
+//         res.redirect("/auth/login");
+//     });
+// });
 
 module.exports = router;
