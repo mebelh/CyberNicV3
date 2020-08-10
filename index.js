@@ -80,6 +80,10 @@ const start = async () => {
             useFindAndModify: false,
         });
         // const admin = await User.findOne({ login: "admin" });
+
+        // admin.password = await bcrypt.hash("js4g6q0nfbnfpi", 12);
+        // admin.save();
+
         // if (!admin) {
         //     const user = new User({
         //         login: "admin",
