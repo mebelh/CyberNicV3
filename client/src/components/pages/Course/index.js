@@ -13,14 +13,12 @@ export default function Course({ match }) {
 
     const [course, setCourse] = useState("");
 
-    const user = JSON.parse(localStorage.getItem("user"));
-
     const [lecture, setLecture] = useState({});
 
     const { reqest } = useHttp();
 
     useEffect(() => {
-        reqest(`/api/courses/${courseId}/${user.login}`, "GET").then((c) => {
+        reqest(`/api/courses/${courseId}`, "GET").then((c) => {
             setCourse(c);
             setLecture({ link: c.linkOnTrialVideo, idActiveLecture: 0 });
         });

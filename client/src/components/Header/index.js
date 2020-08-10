@@ -68,7 +68,7 @@ export default function Header() {
     // const usetLogin = onUserLogin();
 
     const SignButtons = () => {
-        return !user.ok ? (
+        return !user.token ? (
             <div className="header_right-part">
                 <Button
                     label="Войти"
@@ -88,12 +88,17 @@ export default function Header() {
 
     return (
         <div className="header">
-            <div className="header_left-part">
-                <Logo className="logo" path={logoPath} />
-                <DropdownBtn className="btn header__btn" login={user.ok} />
+            <div className="container">
+                <div className="header_left-part">
+                    <Logo className="logo" path={logoPath} />
+                    <DropdownBtn
+                        className="btn header__btn"
+                        login={user.token}
+                    />
+                </div>
+                <SignButtons />
+                {user.token && <Greetings name={user.name || user.login} />}
             </div>
-            <SignButtons />
-            {user.ok && <Greetings name={user.name || user.login} />}
         </div>
     );
 }

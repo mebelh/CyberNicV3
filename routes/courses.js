@@ -1,4 +1,7 @@
 const { Router } = require("express");
+const jwt = require("jsonwebtoken");
+
+const config = require("config");
 
 const Course = require("../models/course");
 
@@ -46,41 +49,49 @@ router.get("/all", async (req, res) => {
     res.send(JSON.stringify(courses));
 });
 
-router.get("/:id/:userLogin", async (req, res) => {
-    const { id, userLogin } = req.params;
+router.get("/:id", async (req, res) => {
+    const { id } = req.params;
 
-    const course = await Course.find({ link: id });
+    let course = await Course.find({ link: id });
 
-    const user = (await User.findOne({ login: userLogin })) || { courses: [] };
+    if (!course.length) {
+        return res.status(404).json({});
+    }
 
-    if (course.length) {
+    course = course[0];
+
+    const cutEgg = () => {
+        course.modules = course.modules.map(({ lectures, name, duration }) => {
+            return {
+                name,
+                duration,
+                lectures: lectures.map(({ name, duration }) => ({
+                    name,
+                    duration,
+                })),
+            };
+        });
+    };
+
+    const { token } = req.headers;
+
+    if (token) {
+        const parseToken = jwt.decode(token, config.get("jwtSecret"));
+
+        const user = (await User.findOne({ _id: parseToken.userId })) || {
+            courses: [],
+        };
+
         const isPremium =
             ~user.courses.join("").indexOf(id) ||
-            userLogin === "admin" ||
-            user.isPremium;
-        res.send(
-            isPremium
-                ? JSON.stringify(...course)
-                : JSON.stringify(...course, (key, val) => {
-                      if (key === "modules")
-                          return val.map(({ lectures, name, duration }) => {
-                              return {
-                                  name,
-                                  duration,
-                                  lectures: lectures.map(
-                                      ({ name, duration }) => ({
-                                          name,
-                                          duration,
-                                      })
-                                  ),
-                              };
-                          });
-                      return val;
-                  })
-        );
+            user.isPremium ||
+            user.isAdmin;
+        !isPremium && cutEgg();
     } else {
-        res.send(JSON.stringify({}));
+        cutEgg();
     }
+
+    return res.json(course);
 });
 
 module.exports = router;

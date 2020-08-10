@@ -52,16 +52,18 @@ export default function Films() {
             <Loading />
         </div>
     ) : (
-        <div className="films">
-            <ReactPlayer
-                className="films__player"
-                url={film.url}
-                height="400px"
-                width="100%"
-                controls={true}
-            />
+        <div className="films-wrapper">
+            <div className="films container">
+                <ReactPlayer
+                    className="films__player"
+                    url={film.url}
+                    height="400px"
+                    width="100%"
+                    controls={true}
+                />
 
-            <ul class="films__list list-group">{filmsListUpdate()}</ul>
+                <ul class="films__list list-group">{filmsListUpdate()}</ul>
+            </div>
         </div>
     );
 }

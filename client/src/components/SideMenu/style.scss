@@ -17,16 +17,24 @@
     }
   }
 
+  .card {
+    border: none;
+    box-shadow: 0 0 10px #00000025;
+  }
+
   .list-group-item {
-    background-color: #f1f3f2;
-    border: 1px solid #00000011;
+    background-color: #ffffff;
+
+    border: none;
+
+    border-top: 1px solid #00000011;
     border-radius: 0 !important;
     cursor: pointer;
 
     &.active {
-      background-color: #0f35472d;
+      background-color: #7070701c;
 
-      border: 1px solid #00000011;
+      border: 1px solid #00000000;
 
       * {
         color: #444444;
@@ -34,7 +42,7 @@
       }
 
       &:hover {
-        background-color: #0f354738;
+        // background-color: #0f354738;
 
         * {
           color: #000000;
@@ -43,7 +51,7 @@
     }
 
     &:hover {
-      background-color: #fff;
+      // background-color: #fff;
 
       * {
         color: #000000;
@@ -53,7 +61,7 @@
 
   .card {
     &-header {
-      background-color: #006C84;
+      background-color: #018aa8;
     }
   }
 

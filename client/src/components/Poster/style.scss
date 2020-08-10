@@ -8,6 +8,8 @@
   background-size: 100%;
   background-position: center;
 
+  box-shadow: 0 0 10px #00000011;
+
   span {
     text-align: center;
   }
@@ -22,3 +24,5 @@
     -webkit-text-stroke-color: #248ffa3f;
   }
 }
+
+// Адаптив -> HOME => adaptive

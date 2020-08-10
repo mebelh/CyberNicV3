@@ -5,10 +5,11 @@ import Password from "../authComponents/Password";
 import SubmitBtn from "../authComponents/SubmitBtn";
 
 import { Context } from "../../../../context";
-
-// import Message from "./../../message";
+import { useHttp } from "hooks/http.hook";
 
 export default function SignIn() {
+    const { reqest } = useHttp();
+
     const { onUserLogin } = useContext(Context);
 
     const [user, setUser] = useState({
@@ -26,20 +27,20 @@ export default function SignIn() {
 
     const checkLogin = async (e) => {
         e.preventDefault();
-        fetch("/auth/login/adm", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({ ...user }),
-        }).then(async (res) => {
-            const user = await res.json();
-            onUserLogin(user);
-            if (user.ok) {
+
+        try {
+            reqest("/api/auth/login", "POST", user).then((d) => {
+                console.log(d);
+                if (!d.token) {
+                    // Ошибка авторизации
+                    return;
+                }
+                onUserLogin(d);
                 window.location.replace("/");
-            }
-        });
+            });
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -47,7 +48,7 @@ export default function SignIn() {
             <div className="formBgc">
                 {/* <Message text="Hello" /> */}
                 <form
-                    action="http://localhost:3001/auth/login"
+                    action="/api/auth/login"
                     method="POST"
                     onSubmit={checkLogin}
                 >

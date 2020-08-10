@@ -2,15 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 60vh;
 
-
-  // background: linear-gradient(45deg,#aacff3, #248ffa);
   .formBgc {
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid #17a2b8;
+    box-shadow: 0 0 10px #00000025;
     margin: 0 1rem 0 1rem;
 
     form {
@@ -21,6 +19,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        input {
+          max-width: 12rem;
+        }
 
         span {
           margin-right: 1em;

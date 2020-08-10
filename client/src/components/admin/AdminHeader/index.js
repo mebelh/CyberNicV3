@@ -5,7 +5,8 @@ import { Context } from "./../../../context";
 
 export default function Subheader() {
     const { user } = useContext(Context);
-    if (user.ok && user.isAdmin) {
+    console.log(user);
+    if (user.isAdmin) {
         return (
             <div className="adminHeader">
                 <a href="/admin/users">Пользователи</a>

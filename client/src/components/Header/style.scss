@@ -1,22 +1,28 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 30px;
 
+  box-shadow: 0 0 10px #00000025;
+
+  margin-bottom: 1rem;
+
+  .container {
+    max-width: 90%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+  }
+
+  &_left-part {
+    a {
+      margin-right: 1rem;
+    }
+  }
 
   &_left-part,
   &_right-part {
     display: flex;
     align-items: center;
-  }
-
-  &_left-part>* {
-    margin-right: 50px;
-  }
-
-  &_right-part>* {
-    margin-left: 42px;
   }
 
   &_right-part {
@@ -33,24 +39,30 @@
 
 @media (max-width: 400px) {
   .header {
+    .container {
+      max-width: 100%;
+      padding: .5rem .5rem .5rem .5rem;
+      height: auto;
+      margin-bottom: 1rem;
 
-    padding: 1rem .5rem 0;
+      .header_left-part {
+        &>* {
+          margin: 0;
+        }
 
-    justify-content: space-between;
+        & button {
+          margin: 1rem 0 0 0;
+        }
 
-    &_left-part {
-      &>* {
+        flex-direction: column;
+
+        .greetings {
+          text-align: center;
+        }
+      }
+
+      .header_right-part>* {
         margin: 0;
-      }
-
-      & button {
-        margin: 1rem 0 0 0;
-      }
-
-      flex-direction: column;
-
-      .greetings {
-        text-align: center;
       }
     }
   }

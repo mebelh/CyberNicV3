@@ -1,9 +1,10 @@
 .course {
     background-color: #19293d;
-    box-shadow: 0 0 6px #11376898;
+    box-shadow: 0 0 10px #00000035;
     overflow: hidden;
     position: relative;
-    border: 1px solid #d4d4d4;
+    border-radius: .2rem;
+
 
     * {
         transition: all ease 0.3s;
@@ -68,12 +69,12 @@
 
 @media (max-width: 400px) {
     .course-list.container {
-        max-width: 100%;
+        max-width: 90%;
     }
 
     .course {
         &__img {
-            height: 12rem;
+            height: 10rem;
         }
     }
 }

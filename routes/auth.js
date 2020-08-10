@@ -1,56 +1,71 @@
 const { Router } = require("express");
 const router = Router();
 const bcrypt = require("bcrypt");
+const config = require("config");
+const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 
-router.post("/login/adm", async (req, res) => {
-    const { login, password } = req.body;
-
-    const candidate = await User.findOne({ login });
-
-    if (candidate) {
-        const areSame = await bcrypt.compare(
-            password.toString(),
-            candidate.password.toString()
-        );
-        if (areSame) {
-            const { name, login, courses, isAdmin } = candidate;
-            res.status(200).send(
-                JSON.stringify({
-                    name,
-                    login,
-                    courses,
-                    ok: true,
-                    isAdmin,
-                    token: candidate.password.toString(),
-                })
-            );
-        } else {
-            res.send({ ok: false });
-        }
-    }
-});
+// Атворизация
 
 router.post("/login", async (req, res) => {
     const { login, password } = req.body;
+
     const candidate = await User.findOne({ login });
 
-    if (candidate) {
-        const areSame = await bcrypt.compare(
-            password.toString(),
-            candidate.password.toString()
-        );
-        if (areSame) {
-            req.session.user = candidate;
-            req.session.isAuthentificated = true;
-            req.session.save(() => {
-                res.redirect("/");
-            });
-        }
-    } else {
-        res.redirect("/");
+    if (!candidate) {
+        return res.status(404).json({ ok: false });
     }
+
+    const areSame = await bcrypt.compare(
+        password.toString(),
+        candidate.password.toString()
+    );
+
+    if (!areSame) {
+        return res.status(401).json({
+            message: "Неверные данные при авторизации. Попробуйте еще раз.",
+        });
+    }
+
+    const { name, isAdmin, isPremium } = candidate;
+
+    const token = await jwt.sign(
+        {
+            userId: candidate.id,
+            isAdmin,
+            isPremium: isPremium || isAdmin,
+        },
+        config.get("jwtSecret")
+    );
+
+    return res.json({
+        token,
+        userId: candidate.id,
+        name: name || login,
+        isAdmin,
+    });
+
+    // if (candidate) {
+    //     const areSame = await bcrypt.compare(
+    //         password.toString(),
+    //         candidate.password.toString()
+    //     );
+    //     if (areSame) {
+    //         return res.status(200).send(
+    //             JSON.stringify({
+    //                 name,
+    //                 login,
+    //                 courses,
+    //                 ok: true,
+    //                 isAdmin,
+    //                 token: candidate.password.toString(),
+    //             })
+    //         );
+    //     } else {
+    //         return res.send({ ok: false });
+    //     }
+    // }
 });
 
 router.post("/register", async (req, res) => {
@@ -60,7 +75,9 @@ router.post("/register", async (req, res) => {
         const candidate = await User.findOne({ login });
         if (candidate) {
             //Логин занят
-            // res.redirect("/auth/login#register");
+            res.json({ message: "Что то пошло не так..." }).redirect(
+                "/auth/register"
+            );
         }
         // else if (password !== repeat) {
         // console.log(password + "  ||| " + repeat);
@@ -80,17 +97,11 @@ router.post("/register", async (req, res) => {
 
             await user.save();
 
-            res.redirect("/");
+            res.json({ message: "Успешная авторизация" }).redirect("/");
         }
     } catch (e) {
         console.log(e);
     }
-});
-
-router.get("/logout", (req, res) => {
-    req.session.destroy(() => {
-        res.redirect("/auth/login");
-    });
 });
 
 module.exports = router;

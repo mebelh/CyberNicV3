@@ -4,10 +4,11 @@ export default function Password({ onPasswordChange = () => {} }) {
     return (
         <label htmlFor="password">
             <span>Пароль:</span>
+
             <input
                 type="password"
-                placeholder="Password"
-                name="password"
+                class="form-control"
+                placeholder="Ваш пароль"
                 onChange={({ target }) => {
                     onPasswordChange(target.value);
                 }}

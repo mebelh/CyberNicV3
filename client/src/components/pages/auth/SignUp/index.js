@@ -9,11 +9,11 @@ export default function SignIn() {
     return (
         <div className="SignUp">
             <div className="formBgc">
-                <form action="/auth/register" method="POST">
+                <form action="/api/auth/register" method="POST">
                     <Name />
                     <Email />
                     <Password />
-                    <SubmitBtn text="Войти" />
+                    <SubmitBtn text="Зарегистрироваться" />
                 </form>
             </div>
         </div>

@@ -1,14 +1,47 @@
 .films {
-  margin: 1em 0 1em;
+
+  margin: 0 auto;
+
   display: grid;
   grid-template-columns: 2fr 1fr;
   column-gap: 1em;
+
+  &__player {
+
+    iframe {
+      border-radius: .4rem;
+      box-shadow: 0 0 8px #00000035;
+
+    }
+  }
 
   * {
     word-break: break-all;
   }
 
-  &__list li {
-    cursor: pointer;
+  &__list {
+
+    max-height: 35rem;
+
+    overflow-y: scroll;
+
+    box-shadow: 0 0 8px #00000020;
+
+    margin-bottom: 1rem;
+
+    li {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .films {
+    grid-template-columns: 1fr;
+
+    &__player {
+      margin-bottom: 1rem;
+      height: 250px !important;
+    }
   }
 }

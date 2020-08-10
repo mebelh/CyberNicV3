@@ -1,16 +1,19 @@
 .footer {
-  grid-area: footer;
+
+  &-wrapper {
+    background: #3168a5;
+
+  }
+
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background: #3168a5;
   color: #fff;
   padding: 10px;
 
   ul {
     margin: 0;
   }
-
 
   a,
   a:hover,
@@ -38,7 +41,6 @@
       flex-direction: row;
       text-shadow: 0 0 3px #050a0c;
 
-
       &:hover * {
         color: #008cff
       }
@@ -53,4 +55,40 @@
     }
   }
 
+}
+
+@media (max-width: 650px) {
+  .footer {
+    * {
+      font-size: .8rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+
+  .footer.container {
+    padding: .5rem !important;
+  }
+
+  .footer {
+
+
+    img {
+      height: 35px;
+      margin-right: 1rem;
+      padding: 5px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
 }

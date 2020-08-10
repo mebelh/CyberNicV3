@@ -9,6 +9,7 @@ export const useHttp = () => {
             ...headers,
             Accept: "application/json",
             "content-type": "application/json",
+            token: JSON.parse(window.localStorage.getItem("user")).token || "",
         };
         setLoading(true);
         try {
@@ -18,8 +19,10 @@ export const useHttp = () => {
 
             const data = await response.json();
 
+            console.log(data);
+
             if (!response.ok) {
-                throw new Error(data.message || "Что то пошло не так");
+                return { message: "Что то пошло не так!" };
             }
             setLoading(false);
             return data;
