@@ -18,7 +18,9 @@
     grid-column: 2/3;
   }
 
-  .info-course {}
+  .info-course {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1400px) {

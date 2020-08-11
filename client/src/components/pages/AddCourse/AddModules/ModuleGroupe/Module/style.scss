@@ -12,10 +12,32 @@
   border: 1px solid #00000021;
   height: 4em;
 
-
   label {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+
+  &__buttons {
+    display: flex;
+  }
+
+
+}
+
+@media (max-width: 400px) {
+  .Module {
+    &__buttons a button {
+      font-size: .9rem;
+    }
+
+    div {
+      margin-bottom: .5rem;
+    }
+
+    div * {
+      font-size: .8rem;
+    }
   }
 }

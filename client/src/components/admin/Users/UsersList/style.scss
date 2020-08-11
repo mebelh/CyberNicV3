@@ -1,7 +1,7 @@
 .user {
   .list-group-item {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
     align-items: center;
 
   }
@@ -11,12 +11,21 @@
     font-size: 1.1rem;
     color: #002d8d
   }
+}
 
+@media (max-width: 400px) {
+  .user {
+    * {
+      font-size: .8rem;
+    }
 
-
-  // >span {
-  //   padding: 8px 4px;
-  //   border-left: 1px solid black;
-  //   border-bottom: 1px solid black;
-  // }
+    .list-group-item {
+      span {
+        // max-width: 0.25 * 100vw;
+        word-break: break-all;
+        padding: .5rem;
+        // font-size: .7rem;
+      }
+    }
+  }
 }

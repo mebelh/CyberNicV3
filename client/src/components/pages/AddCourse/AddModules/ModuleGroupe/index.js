@@ -20,5 +20,5 @@ export default function ModuleGroupe({ num = 1, onInfAdd }) {
         arr.push(<Module onModuleChange={onModuleChange} num={i} key={i} />);
     }
 
-    return arr;
+    return <div className="addModules__modules">{arr}</div>;
 }

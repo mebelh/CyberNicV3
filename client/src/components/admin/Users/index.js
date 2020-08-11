@@ -32,28 +32,10 @@ export default function Users() {
             setUsers(users);
             setShowUsers(users);
         });
-        // fetch("/api/admin/users/getall", {
-        //     method: "get",
-        //     headers: {
-        //         "content-type": "application/json",
-        //         Accept: "application/json",
-        //     },
-        // }).then(async (users) => {
-        //     const usersData = await users.json();
-        //     setUsers(usersData);
-        //     setShowUsers(usersData);
-        // });
     }, []);
 
     const toggleUserStatus = async (login) => {
-        await fetch("/admin/users/toggleuserstatus", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({ login }),
-        });
+        reqest("/api/admin/users/toggleuserstatus", "POST", { login });
     };
 
     return !users.length ? (

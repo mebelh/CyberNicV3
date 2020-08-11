@@ -16,3 +16,24 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+  .Lecture {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    div {
+      display: flex;
+      width: 90%;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: .5rem;
+      margin-top: .5rem;
+
+      * {
+        font-size: .8rem;
+      }
+    }
+  }
+}

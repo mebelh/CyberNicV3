@@ -6,7 +6,7 @@ const fs = require("fs");
 const router = Router();
 
 const User = require("./../models/user");
-const { config } = require("process");
+const config = require("config");
 
 router.get("/users/getall", async (req, res) => {
     // Проверяем доступ пользователя через токен
@@ -31,6 +31,18 @@ router.get("/users/getall", async (req, res) => {
 });
 
 router.post("/users/toggleuserstatus", async (req, res) => {
+    const goOut = () => res.status(403).json({ message: "Нет доступа!" });
+
+    // Проверка доступа по токену
+
+    const { token } = req.headers;
+
+    if (!token) return goOut();
+
+    const parseToket = jwt.verify(token, config.get("jwtSecret"));
+
+    if (!parseToket.isAdmin) return goOut();
+
     const { login } = req.body;
 
     const candidate = await User.findOne({ login });

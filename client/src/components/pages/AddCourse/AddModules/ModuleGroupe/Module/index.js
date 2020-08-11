@@ -51,17 +51,18 @@ export default function Module({ onModuleChange, num }) {
                         }}
                     />
                 </div>
-
-                <Button
-                    label="Добавить видео"
-                    bgc="#00587a"
-                    onClick={() => setNumOfLectures(numOfLectures + 1)}
-                />
-                <Button
-                    label="Убрать видео"
-                    bgc="#803100"
-                    onClick={() => setNumOfLectures(numOfLectures - 1)}
-                />
+                <div className="Module__buttons">
+                    <Button
+                        label="Добавить видео"
+                        bgc="#00587a"
+                        onClick={() => setNumOfLectures(numOfLectures + 1)}
+                    />
+                    <Button
+                        label="Убрать видео"
+                        bgc="#803100"
+                        onClick={() => setNumOfLectures(numOfLectures - 1)}
+                    />
+                </div>
             </div>
             <Lectures n={numOfLectures} changeModule={changeModule} />
         </div>

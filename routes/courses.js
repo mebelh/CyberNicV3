@@ -10,35 +10,22 @@ const User = require("../models/user");
 const router = Router();
 
 router.post("/add", async (req, res) => {
-    const adminToken = (await User.findOne({ login: "admin" })).password;
+    //Функция выпинывания злодея
+    const goOut = () => res.status(403).json({ message: "Нет доступа!" });
 
-    if (req.body.token.toString() === adminToken.toString()) {
-        const {
-            courseName,
-            link,
-            courseNameColor,
-            backgroundColor,
-            backgroundImageLink,
-            linkOnTrialVideo,
-            shortDescription,
-            description,
-            modules,
-        } = req.body;
-        const newCourse = new Course({
-            courseName,
-            link,
-            courseNameColor,
-            backgroundColor,
-            backgroundImageLink,
-            linkOnTrialVideo,
-            shortDescription,
-            description,
-            modules,
-        });
-        await newCourse.save();
-    } else {
-        res.redirect("/auth/login");
-    }
+    //Проверка доступа по токену
+    const { token } = req.headers;
+
+    if (!token) return goOut();
+
+    const parseToken = jwt.verify(token, config.get("jwtSecret"));
+
+    if (!parseToken.isAdmin) return goOut();
+
+    //Пользователь - админ, добавляем курс
+    new Course(req.body).save();
+
+    res.json({ message: "Курс добавлен" });
 });
 
 router.get("/all", async (req, res) => {
