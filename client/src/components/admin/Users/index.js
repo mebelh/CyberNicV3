@@ -4,7 +4,10 @@ import UsersList from "./UsersList";
 import "./style.scss";
 import { useState } from "react";
 import Loading from "components/Loading";
+import { useHttp } from "hooks/http.hook";
+
 export default function Users() {
+    const { reqest } = useHttp();
     const [users, setUsers] = useState([]);
     const [showUsers, setShowUsers] = useState([]);
 
@@ -25,17 +28,21 @@ export default function Users() {
     }, [searchFilter]);
 
     useEffect(() => {
-        fetch("/admin/users/getall", {
-            method: "get",
-            headers: {
-                "content-type": "application/json",
-                Accept: "application/json",
-            },
-        }).then(async (users) => {
-            const usersData = await users.json();
-            setUsers(usersData);
-            setShowUsers(usersData);
+        reqest("/api/admin/users/getall", "GET").then((users) => {
+            setUsers(users);
+            setShowUsers(users);
         });
+        // fetch("/api/admin/users/getall", {
+        //     method: "get",
+        //     headers: {
+        //         "content-type": "application/json",
+        //         Accept: "application/json",
+        //     },
+        // }).then(async (users) => {
+        //     const usersData = await users.json();
+        //     setUsers(usersData);
+        //     setShowUsers(usersData);
+        // });
     }, []);
 
     const toggleUserStatus = async (login) => {

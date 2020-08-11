@@ -59,8 +59,8 @@ app.use(userMiddleware);
 
 app.use("/api/courses", coursesRoute);
 app.use("/api/auth", authRoute);
-app.use("/films", filmsRoute);
-app.use("/admin", adminRoute);
+app.use("/api/films", filmsRoute);
+app.use("/api/admin", adminRoute);
 
 if (process.env.NODE_ENV === "production") {
     app.use("/", express.static(path.join(__dirname, "client", "build")));

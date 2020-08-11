@@ -2,8 +2,11 @@ import React, { useState, useEffect, useCallback } from "react";
 import ReactPlayer from "react-player";
 import "./style.scss";
 import Loading from "components/Loading";
+import { useHttp } from "hooks/http.hook";
 
 export default function Films() {
+    const { reqest } = useHttp();
+
     const [film, setFilm] = useState({
         url: "",
         activeId: 0,
@@ -24,6 +27,7 @@ export default function Films() {
             return (
                 <li
                     className={clazz}
+                    key={index}
                     onClick={() => {
                         onFilmChange(url, index);
                     }}
@@ -34,17 +38,11 @@ export default function Films() {
         });
     };
 
-    useEffect(async () => {
-        const films = await fetch("/films/all", {
-            method: "GET",
-            headers: {
-                "content-type": "application/json",
-                Accept: "application/json",
-            },
+    useEffect(() => {
+        reqest("/api/films/all", "GET").then((f) => {
+            setFilms(f);
+            setFilm({ url: f[0].url, activeId: 0 });
         });
-        const filmsList = await films.json();
-        setFilms(filmsList);
-        setFilm({ url: filmsList[0].url, activeId: 0 });
     }, []);
 
     return !films.length ? (
@@ -62,7 +60,7 @@ export default function Films() {
                     controls={true}
                 />
 
-                <ul class="films__list list-group">{filmsListUpdate()}</ul>
+                <ul className="films__list list-group">{filmsListUpdate()}</ul>
             </div>
         </div>
     );

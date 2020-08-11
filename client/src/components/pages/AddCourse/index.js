@@ -24,11 +24,118 @@ export default function AddCourse() {
     };
 
     return (
-        <form className="addCourse" onSubmit={fetchCourse}>
-            <div className="addCourse__left">
-                <h2>Добавить курс:</h2>
-                <label>
-                    <span>Имя курса:</span>
+        <form onSubmit={fetchCourse}>
+            <div className="addCourse container">
+                {/* <div className="addCourse__left"> */}
+                <h2>Добавить курс</h2>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                        >
+                            Название
+                        </span>
+                    </div>
+                    <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                        onChange={({ target }) => {
+                            onInfAdd("courseName", target.value);
+                        }}
+                    />
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                        >
+                            ID
+                        </span>
+                    </div>
+                    <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                        placeholder="Будущая ссылка на курс"
+                        onChange={({ target }) => {
+                            onInfAdd("link", target.value);
+                        }}
+                    />
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                        >
+                            Триал видео
+                        </span>
+                    </div>
+                    <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                        name="linkOnTrialVideo"
+                        onChange={({ target }) => {
+                            onInfAdd("linkOnTrialVideo", target.value);
+                        }}
+                    />
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                        >
+                            Фоновая картинка
+                        </span>
+                    </div>
+                    <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                        name="backgroundImageLink"
+                        onChange={({ target }) => {
+                            onInfAdd("backgroundImageLink", target.value);
+                        }}
+                    />
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                        >
+                            Цвет названия
+                        </span>
+                    </div>
+                    <input
+                        type="color"
+                        value="#ffffff"
+                        class="form-control"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                        name="courseNameColor"
+                        onChange={({ target }) => {
+                            onInfAdd("courseNameColor", target.value);
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <span>Имя курса</span>
                     <input
                         type="text"
                         name="courseName"
@@ -38,9 +145,9 @@ export default function AddCourse() {
                             onInfAdd("courseName", target.value);
                         }}
                     />
-                </label>
+                </div>
                 <label>
-                    <span>Id курса:</span>
+                    <span>Id курса</span>
                     <input
                         type="text"
                         required
@@ -51,8 +158,8 @@ export default function AddCourse() {
                         }}
                     />
                 </label>
-                <label>
-                    <span>Ссылка на триал видео:</span>
+                <div>
+                    <span>Ссылка на триал видео</span>
                     <input
                         type="text"
                         required
@@ -62,9 +169,9 @@ export default function AddCourse() {
                             onInfAdd("linkOnTrialVideo", target.value);
                         }}
                     />
-                </label>
-                <label>
-                    <span>Ссылка на фоновую картинку:</span>
+                </div>
+                <div>
+                    <span>Ссылка на фоновую картинку</span>
                     <input
                         type="text"
                         required
@@ -74,9 +181,9 @@ export default function AddCourse() {
                             onInfAdd("backgroundImageLink", target.value);
                         }}
                     />
-                </label>
-                <label>
-                    <span>Цвет имени курса:</span>
+                </div>
+                <div>
+                    <span>Цвет имени курса</span>
                     <input
                         type="color"
                         required
@@ -85,9 +192,29 @@ export default function AddCourse() {
                             onInfAdd("courseNameColor", target.value);
                         }}
                     />
-                </label>
+                </div>
 
-                <div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">With textarea</span>
+                    </div>
+                    <textarea
+                        class="form-control"
+                        aria-label="With textarea"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">With textarea</span>
+                    </div>
+                    <textarea
+                        class="form-control"
+                        aria-label="With textarea"
+                    ></textarea>
+                </div>
+
+                <label>
                     <textarea
                         placeholder="Короткое описание курса"
                         rows="8"
@@ -98,7 +225,7 @@ export default function AddCourse() {
                             onInfAdd("shortDescription", target.value);
                         }}
                     />
-                </div>
+                </label>
                 <div>
                     <textarea
                         placeholder="Описание каждого модуля"
@@ -122,6 +249,7 @@ export default function AddCourse() {
                     type="submit"
                 />
             </div>
+            {/* </div> */}
         </form>
     );
 }

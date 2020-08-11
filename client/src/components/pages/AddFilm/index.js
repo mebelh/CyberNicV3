@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
 import "./style.scss";
+import { useHttp } from "hooks/http.hook";
 
 export default function AddFilm() {
+    const { reqest } = useHttp();
+
     const [film, setFilm] = useState({ url: "", label: "" });
 
     const onFilmEdit = (key, data) => {
@@ -10,26 +13,20 @@ export default function AddFilm() {
     };
 
     const sendForm = () => {
-        fetch("/films/add", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify(film),
-        });
+        reqest("/api/films/add", "POST", film);
+
         // window.location.reload();
     };
 
     return (
         <div className="addFilm">
-            <form className="addFilm__form">
+            <div className="addFilm__form">
                 <div className="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Название фильма:</span>
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Название:</span>
                     </div>
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={film.label}
                         name="label"
                         required
@@ -41,12 +38,12 @@ export default function AddFilm() {
                 </div>
 
                 <div className="input-group mb-3">
-                    <div class="input-group-prepend">
+                    <div className="input-group-prepend">
                         <span
-                            class="input-group-text"
+                            className="input-group-text"
                             id="inputGroup-sizing-default"
                         >
-                            Ссылка на фильм:
+                            Ссылка:
                         </span>
                     </div>
                     <input
@@ -65,7 +62,7 @@ export default function AddFilm() {
                 <button className="btn btn-outline-success" onClick={sendForm}>
                     Добавить фильм
                 </button>
-            </form>
+            </div>
         </div>
     );
 }
