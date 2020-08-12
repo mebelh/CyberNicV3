@@ -43,17 +43,21 @@
 }
 
 @media only screen and (max-width: 400px) {
+
+  .poster-wrapper,
   .poster {
     min-height: 11rem;
 
     background-size: 150%;
 
     p {
-      font-size: 2em;
+      font-size: 1.8em;
     }
   }
 
   .advantages {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 
     &__icon {
       font-size: 1.8rem;
@@ -75,7 +79,13 @@
 
 
   .course-list {
+    margin-top: 0;
     grid-template-columns: 1fr;
+
+    h3 {
+      font-size: 1.8rem !important;
+      margin: 0;
+    }
   }
 
   .course p {
