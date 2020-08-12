@@ -25,6 +25,9 @@ export default function CourseList() {
         </div>
     ) : (
         <>
+            <h3 style={{ fontSize: "50px", textAlign: "center" }}>
+                Список курсов:
+            </h3>
             <div className="course-list container">
                 {courses.map((e, index) => {
                     return (

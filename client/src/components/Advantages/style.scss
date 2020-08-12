@@ -1,9 +1,12 @@
 .advantages {
 
   justify-content: space-evenly;
-  background-image: linear-gradient(to right, #00273ab9, #00273ad3), url("./../../img/advantagesBg.jpg");
+  // background-image: linear-gradient(to right, #00273ab9, #00273ad3), url("./../../img/advantagesBg.jpg");
   background-size: cover;
   text-align: center;
+
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 
   & .container {
     height: 150px;
@@ -21,19 +24,24 @@
     align-items: center;
     justify-content: space-between;
 
+
+
     p {
       margin: .5rem 0 0 0;
     }
   }
 
   &__icon {
-    font-size: 70px;
-    color: whitesmoke;
+    font-size: 90px;
+    color: #0d3364;
+    text-shadow: 0 0 2px #0000001c;
+
   }
 
   p {
-    color: whitesmoke;
-    font-family: 'caveat';
+    color: #0d3364bb;
+    font-weight: 500;
+    font-family: 'Roboto';
     text-transform: uppercase;
   }
 }
