@@ -45,27 +45,6 @@ router.post("/login", async (req, res) => {
         name: name || login,
         isAdmin,
     });
-
-    // if (candidate) {
-    //     const areSame = await bcrypt.compare(
-    //         password.toString(),
-    //         candidate.password.toString()
-    //     );
-    //     if (areSame) {
-    //         return res.status(200).send(
-    //             JSON.stringify({
-    //                 name,
-    //                 login,
-    //                 courses,
-    //                 ok: true,
-    //                 isAdmin,
-    //                 token: candidate.password.toString(),
-    //             })
-    //         );
-    //     } else {
-    //         return res.send({ ok: false });
-    //     }
-    // }
 });
 
 router.post("/register", async (req, res) => {

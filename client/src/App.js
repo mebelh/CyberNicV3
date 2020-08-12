@@ -22,13 +22,27 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "./App.scss";
 import Conditions from "components/pages/conditions";
+import { useHttp } from "hooks/http.hook";
 
 export default function App() {
     const [user, setUser] = useState({});
 
+    const { reqest } = useHttp();
+
     useEffect(() => {
         const raw = localStorage.getItem("user") || JSON.stringify({});
-        setUser(JSON.parse(raw));
+
+        let parseRaw = JSON.parse(raw);
+
+        if (!parseRaw.userId && parseRaw) {
+            reqest("/api/admin/relogin", "POST", {
+                login: JSON.parse(raw).login || {},
+            }).then((data) => {
+                setUser(data);
+            });
+        } else {
+            setUser(JSON.parse(raw));
+        }
     }, []);
 
     useEffect(() => {

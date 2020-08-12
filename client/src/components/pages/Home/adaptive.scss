@@ -42,7 +42,7 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
 
   .poster-wrapper,
   .poster {
@@ -78,10 +78,10 @@
     margin-top: 0;
     grid-template-columns: 1fr;
 
-    h3 {
-      font-size: 1.8rem !important;
-      margin: 0;
-    }
+  }
+
+  #course-list__header {
+    font-size: 1.9rem !important;
   }
 
   .course p {

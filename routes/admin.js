@@ -70,8 +70,30 @@ router.get("/elbibl", (req, res) => {
 
     fs.createReadStream(index).pipe(res);
     console.log("Адрес: ", filePath);
+});
 
-    // res.send(fs.);
+router.post("/relogin", async (req, res) => {
+    const { login } = req.body;
+
+    const candidate = await User.findOne({ login });
+
+    const { name, isAdmin, isPremium } = candidate;
+
+    const token = await jwt.sign(
+        {
+            userId: candidate.id,
+            isAdmin,
+            isPremium: isPremium || isAdmin,
+        },
+        config.get("jwtSecret")
+    );
+
+    return res.json({
+        token,
+        userId: candidate.id,
+        name: name || login,
+        isAdmin,
+    });
 });
 
 module.exports = router;

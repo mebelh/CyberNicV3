@@ -25,8 +25,10 @@ export default function CourseList() {
         </div>
     ) : (
         <>
-            {" "}
-            <h3 style={{ fontSize: "50px", textAlign: "center" }}>
+            <h3
+                id="course-list__header"
+                style={{ fontSize: "50px", textAlign: "center" }}
+            >
                 Список курсов:
             </h3>
             <div className="course-list container">

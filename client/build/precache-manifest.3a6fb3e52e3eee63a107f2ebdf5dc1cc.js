@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd12434c8082be09c13e538c442c5795",
+    "revision": "926bd3a19b03c6175ad81cb577a41262",
     "url": "/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.829c9cb5.chunk.css"
   },
   {
-    "revision": "51330745177700cd5c71",
-    "url": "/static/css/main.8d245878.chunk.css"
+    "revision": "6692eb71b8b5972e1caf",
+    "url": "/static/css/main.d34d00cb.chunk.css"
   },
   {
     "revision": "2a6c83bdd5dc8c476d69",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.e6932fae.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "51330745177700cd5c71",
-    "url": "/static/js/main.c552aed9.chunk.js"
+    "revision": "6692eb71b8b5972e1caf",
+    "url": "/static/js/main.5f446a6d.chunk.js"
   },
   {
     "revision": "9b4e396c183e42c1fa5c",
@@ -34,10 +34,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e3291f33a1ec2425a17ac70be005d67b",
     "url": "/static/media/HarryPotter.e3291f33.ttf"
-  },
-  {
-    "revision": "e0bbf8096aa5ea97fac80380dda7af70",
-    "url": "/static/media/advantagesBg.e0bbf809.jpg"
   },
   {
     "revision": "e2e4e9b17c5691531668d61466cc4fa5",
