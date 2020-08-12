@@ -16,7 +16,7 @@ const DropdownBtn = ({ login }) => {
             <DropdownButton id="dropdown-basic-button" title="Меню">
                 <Dropdown.Item href="/elbiblio">Библиотека</Dropdown.Item>
                 <Dropdown.Item href="/films">Учебные фильмы</Dropdown.Item>
-                <Dropdown.Item href="https://yadi.sk/d/NlHe0svuDMzNLg">
+                <Dropdown.Item href="https://yadi.sk/d/DBKW2597jz1RjQ">
                     Скачать библиотеку
                 </Dropdown.Item>
                 {login ? (
