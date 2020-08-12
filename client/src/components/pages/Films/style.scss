@@ -36,8 +36,19 @@
 }
 
 @media (max-width: 450px) {
+
+
   .films {
+    width: 95%;
+
     grid-template-columns: 1fr;
+
+    &__list {
+
+      max-height: none;
+
+      overflow-y: scroll;
+    }
 
     &__player {
       margin-bottom: 1rem;
