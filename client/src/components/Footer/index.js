@@ -32,7 +32,7 @@ export default function Footer() {
                     <a href="https://wa.me/89780490122">
                         <p>WhatsApp</p>
                     </a>
-                    <a href="https://viber.click/789780490122">
+                    <a href="viber://chat?number=%B89780490122">
                         <p>Viber</p>
                     </a>
                 </div>
