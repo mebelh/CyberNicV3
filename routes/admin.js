@@ -77,7 +77,7 @@ router.post("/relogin", async (req, res) => {
 
     const candidate = await User.findOne({ login });
 
-    if (!candidate) return res.json({});
+    if (!candidate) return res.json(false);
 
     const { name, isAdmin, isPremium } = candidate;
 

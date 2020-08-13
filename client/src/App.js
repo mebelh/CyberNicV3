@@ -41,6 +41,7 @@ export default function App() {
             reqest("/api/admin/relogin", "POST", {
                 login: parseRaw.login,
             }).then((data) => {
+                if (!data) return setUser({});
                 setUser(data);
             });
         } else {
