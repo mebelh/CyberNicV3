@@ -5,11 +5,15 @@ export const useHttp = () => {
     const [error, setError] = useState(null);
 
     const reqest = useCallback(async (url, method, body, headers) => {
+        const token = JSON.parse(window.localStorage.getItem("user"))
+            ? JSON.parse(window.localStorage.getItem("user")).token
+            : "";
+
         headers = {
             ...headers,
             Accept: "application/json",
             "content-type": "application/json",
-            token: JSON.parse(window.localStorage.getItem("user")).token || "",
+            token,
         };
         setLoading(true);
         try {

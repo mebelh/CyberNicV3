@@ -77,6 +77,8 @@ router.post("/relogin", async (req, res) => {
 
     const candidate = await User.findOne({ login });
 
+    if (!candidate) return res.json({});
+
     const { name, isAdmin, isPremium } = candidate;
 
     const token = await jwt.sign(

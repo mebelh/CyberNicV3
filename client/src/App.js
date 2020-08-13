@@ -30,13 +30,16 @@ export default function App() {
     const { reqest } = useHttp();
 
     useEffect(() => {
-        const raw = localStorage.getItem("user") || JSON.stringify({});
+        const raw =
+            localStorage.getItem("user") || JSON.stringify({ login: "" });
 
         let parseRaw = JSON.parse(raw);
 
-        if (!parseRaw.userId && parseRaw) {
+        console.log(parseRaw);
+
+        if (!parseRaw.userId) {
             reqest("/api/admin/relogin", "POST", {
-                login: JSON.parse(raw).login || {},
+                login: parseRaw.login,
             }).then((data) => {
                 setUser(data);
             });
