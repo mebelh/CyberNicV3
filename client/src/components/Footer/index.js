@@ -6,6 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCogs } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
+    const isPhone = () =>
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        );
     return (
         <div className="footer-wrapper">
             <div className="footer container">
@@ -29,12 +33,16 @@ export default function Footer() {
                 </div>
                 <div className="footer__info footer__info_right">
                     <b>Вопросы и сотрудничество:</b>
-                    <a href="https://wa.me/89780490122">
+                    <a href="https://wa.me/79780490122">
                         <p>WhatsApp</p>
                     </a>
-                    <a href="viber://chat?number=89780490122">
-                        <p>Viber</p>
-                    </a>
+                    {isPhone() ? (
+                        <a href="viber://chatURI=79780490122">
+                            <p>Viber</p>
+                        </a>
+                    ) : (
+                        <a>asd</a>
+                    )}
                 </div>
             </div>
         </div>
