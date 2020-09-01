@@ -11,10 +11,10 @@ export default function CourseList() {
 
     const [courses, setCourses] = useState([]);
 
-    const { reqest } = useHttp();
+    const { request } = useHttp();
 
     useEffect(() => {
-        reqest("/api/courses/all", "GET").then((d) => setCourses(d));
+        request("/api/courses/all", "GET").then((d) => setCourses(d));
     }, []);
 
     // Пока список курсов пуст рисуем спинер, потом возвращаем список курсов

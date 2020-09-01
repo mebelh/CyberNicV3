@@ -27,7 +27,7 @@ import { useHttp } from "hooks/http.hook";
 export default function App() {
     const [user, setUser] = useState({});
 
-    const { reqest } = useHttp();
+    const { request } = useHttp();
 
     useEffect(() => {
         const raw =
@@ -35,18 +35,18 @@ export default function App() {
 
         let parseRaw = JSON.parse(raw);
 
-        console.log(parseRaw);
+        setUser(parseRaw);
 
-        if (!parseRaw.userId) {
-            reqest("/api/admin/relogin", "POST", {
-                login: parseRaw.login,
-            }).then((data) => {
-                if (!data) return setUser({});
-                setUser(data);
-            });
-        } else {
-            setUser(JSON.parse(raw));
-        }
+        // if (!parseRaw.userId) {
+        //     request("/api/admin/relogin", "POST", {
+        //         login: parseRaw.login,
+        //     }).then((data) => {
+        //         if (!data) return setUser({});
+        //         setUser(data);
+        //     });
+        // } else {
+        //     setUser(JSON.parse(parseRaw));
+        // }
     }, []);
 
     useEffect(() => {

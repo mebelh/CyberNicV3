@@ -8,7 +8,7 @@ import { Context } from "../../../../context";
 import { useHttp } from "hooks/http.hook";
 
 export default function SignIn() {
-    const { reqest } = useHttp();
+    const { request } = useHttp();
 
     const { onUserLogin } = useContext(Context);
 
@@ -29,7 +29,7 @@ export default function SignIn() {
         e.preventDefault();
 
         try {
-            reqest("/api/auth/login", "POST", user).then((d) => {
+            request("/api/auth/login", "POST", user).then((d) => {
                 console.log(d);
                 if (!d.token) {
                     // Ошибка авторизации

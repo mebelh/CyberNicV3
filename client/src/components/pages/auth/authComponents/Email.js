@@ -6,6 +6,7 @@ export default function Email({ onLoginChange = () => {} }) {
             <span>Email</span>
             <input
                 type="email"
+                name='login'
                 className="form-control"
                 id="inputEmail"
                 placeholder="Введите email"

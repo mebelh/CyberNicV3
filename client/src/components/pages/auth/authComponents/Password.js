@@ -6,6 +6,7 @@ export default function Password({ onPasswordChange = () => {} }) {
             <span>Пароль</span>
             <input
                 type="password"
+                name="password"
                 className="form-control"
                 placeholder="Введите пароль"
                 onChange={({ target }) => {

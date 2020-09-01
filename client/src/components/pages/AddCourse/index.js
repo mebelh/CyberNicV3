@@ -4,7 +4,7 @@ import AddModules from "./AddModules";
 import Button from "components/Button";
 import { useHttp } from "hooks/http.hook";
 export default function AddCourse() {
-    const { reqest } = useHttp();
+    const { request } = useHttp();
 
     const [course, setCourse] = useState({
         courseNameColor: "#ffffff",
@@ -16,7 +16,7 @@ export default function AddCourse() {
 
     const fetchCourse = async (e) => {
         e.preventDefault();
-        reqest("/api/courses/add", "POST", course);
+        await request("/api/courses/add", "POST", course);
         // await fetch("/api/courses/add", {
         //     method: "POST",
         //     headers: {

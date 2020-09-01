@@ -4,7 +4,7 @@ export const useHttp = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const reqest = useCallback(async (url, method, body, headers) => {
+    const request = useCallback(async (url, method, body, headers) => {
         const token = JSON.parse(window.localStorage.getItem("user"))
             ? JSON.parse(window.localStorage.getItem("user")).token
             : "";
@@ -35,5 +35,5 @@ export const useHttp = () => {
         }
     }, []);
     const clearError = () => setError(null);
-    return { loading, error, reqest, clearError };
+    return { loading, error, request, clearError };
 };

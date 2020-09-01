@@ -52,9 +52,10 @@ router.post("/register", async (req, res) => {
         const { login, name, password, repeat } = req.body;
 
         const candidate = await User.findOne({ login });
+        console.log(candidate)
         if (candidate) {
             //Логин занят
-            res.json({ message: "Что то пошло не так..." }).redirect(
+            return res.redirect(
                 "/auth/register"
             );
         }
@@ -64,7 +65,7 @@ router.post("/register", async (req, res) => {
         // res.redirect("/auth/login#register");
         // }
         else {
-            const hashPassword = await bcrypt.hash(password, 10);
+            const hashPassword = await bcrypt.hash(password, 10)
             const user = new User({
                 login,
                 password: hashPassword,
@@ -76,7 +77,7 @@ router.post("/register", async (req, res) => {
 
             await user.save();
 
-            res.json({ message: "Успешная авторизация" }).redirect("/");
+            res.redirect("/auth/login");
         }
     } catch (e) {
         console.log(e);

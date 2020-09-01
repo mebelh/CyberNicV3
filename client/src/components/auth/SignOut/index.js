@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext } from "react"
 
-import { Context } from "../../../context";
+import { Context } from "../../../context"
 
 export default function SignOut() {
-    const { setUser } = useContext(Context);
+    const { setUser } = useContext(Context)
+    setUser("")
+    setTimeout(()=>{
+        window.location.replace("/auth/login")
+    }, 300)
 
-    setUser("");
-    window.location.replace("/auth/login");
-
-    return <div className=""></div>;
+    return <div className=""></div>
 }

@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import "./style.scss";
 import Email from "../authComponents/Email";
 import Password from "../authComponents/Password";
 import Name from "../authComponents/Name";
 import SubmitBtn from "../authComponents/SubmitBtn";
 
-export default function SignIn() {
+export default function SignUp() {
     return (
         <div className="SignUp">
             <div className="formBgc">

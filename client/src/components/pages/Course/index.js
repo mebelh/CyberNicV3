@@ -15,10 +15,10 @@ export default function Course({ match }) {
 
     const [lecture, setLecture] = useState({});
 
-    const { reqest } = useHttp();
+    const { request } = useHttp();
 
     useEffect(() => {
-        reqest(`/api/courses/${courseId}`, "GET").then((c) => {
+        request(`/api/courses/${courseId}`, "GET").then((c) => {
             setCourse(c);
             setLecture({ link: c.linkOnTrialVideo, idActiveLecture: 0 });
         });

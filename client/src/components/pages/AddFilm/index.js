@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 import "./style.scss";
-import { useHttp } from "hooks/http.hook";
+import {useHttp} from "hooks/http.hook";
 
 export default function AddFilm() {
-    const { reqest } = useHttp();
+    const {request} = useHttp();
 
-    const [film, setFilm] = useState({ url: "", label: "" });
+    const [film, setFilm] = useState({url: "", label: ""});
 
     const onFilmEdit = (key, data) => {
-        setFilm({ ...film, [key]: data });
+        setFilm({...film, [key]: data});
     };
 
-    const sendForm = () => {
-        reqest("/api/films/add", "POST", film);
+    const sendForm = async () => {
+        await request("/api/films/add", "POST", film);
 
         // window.location.reload();
     };
@@ -31,7 +31,7 @@ export default function AddFilm() {
                         name="label"
                         required
                         aria-label="With textarea"
-                        onChange={({ target }) => {
+                        onChange={({target}) => {
                             onFilmEdit("label", target.value);
                         }}
                     />
@@ -54,7 +54,7 @@ export default function AddFilm() {
                         value={film.url}
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
-                        onChange={({ target }) => {
+                        onChange={({target}) => {
                             onFilmEdit("url", target.value);
                         }}
                     />
