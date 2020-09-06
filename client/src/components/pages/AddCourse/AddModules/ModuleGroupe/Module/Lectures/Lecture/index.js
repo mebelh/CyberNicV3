@@ -4,13 +4,13 @@ import "./style.scss";
 export default function Lecture({ onLacturesChange, num }) {
     const [lecture, setLecture] = useState({});
 
-    const onLactureChange = (key, label) => {
+    const onLectureChange = (key, label) => {
         setLecture({ ...lecture, [key]: label });
     };
 
     useEffect(() => {
         onLacturesChange(num, lecture);
-    }, [lecture]);
+    }, [lecture, num]);
 
     return (
         <div key={num} className="Lecture">
@@ -21,7 +21,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLactureChange("name", target.value);
+                        onLectureChange("name", target.value);
                     }}
                 />
             </div>
@@ -32,7 +32,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLactureChange("duration", target.value);
+                        onLectureChange("duration", target.value);
                     }}
                 />
             </div>
@@ -43,7 +43,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLactureChange("link", target.value);
+                        onLectureChange("link", target.value);
                     }}
                 />
             </div>

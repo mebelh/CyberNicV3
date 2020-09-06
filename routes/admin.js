@@ -17,9 +17,9 @@ router.get("/users/getall", async (req, res) => {
 
     if (!token) return goOut();
 
-    const parseToket = jwt.verify(token, config.get("jwtSecret"));
+    const parseToken = jwt.verify(token, config.get("jwtSecret"));
 
-    if (!parseToket.isAdmin) return goOut();
+    if (!parseToken.isAdmin) return goOut();
 
     const users = await User.find();
     const sentData = users.map((u) => ({
@@ -39,9 +39,9 @@ router.post("/users/toggleuserstatus", async (req, res) => {
 
     if (!token) return goOut();
 
-    const parseToket = jwt.verify(token, config.get("jwtSecret"));
+    const parseToken = jwt.verify(token, config.get("jwtSecret"));
 
-    if (!parseToket.isAdmin) return goOut();
+    if (!parseToken.isAdmin) return goOut();
 
     const { login } = req.body;
 
@@ -71,6 +71,7 @@ router.get("/elbibl", (req, res) => {
     fs.createReadStream(index).pipe(res);
     console.log("Адрес: ", filePath);
 });
+
 //
 // router.post("/relogin", async (req, res) => {
 //     const { login } = req.body;

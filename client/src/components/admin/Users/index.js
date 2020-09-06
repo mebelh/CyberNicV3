@@ -7,7 +7,7 @@ import Loading from "components/Loading";
 import { useHttp } from "hooks/http.hook";
 
 export default function Users() {
-    const { reqest } = useHttp();
+    const { request } = useHttp();
     const [users, setUsers] = useState([]);
     const [showUsers, setShowUsers] = useState([]);
 
@@ -28,14 +28,14 @@ export default function Users() {
     }, [searchFilter]);
 
     useEffect(() => {
-        reqest("/api/admin/users/getall", "GET").then((users) => {
+        request("/api/admin/users/getall", "GET").then((users) => {
             setUsers(users);
             setShowUsers(users);
         });
     }, []);
 
     const toggleUserStatus = async (login) => {
-        reqest("/api/admin/users/toggleuserstatus", "POST", { login });
+        await request("/api/admin/users/toggleuserstatus", "POST", { login });
     };
 
     return !users.length ? (

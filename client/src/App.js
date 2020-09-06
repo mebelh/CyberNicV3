@@ -27,7 +27,7 @@ import { useHttp } from "hooks/http.hook";
 export default function App() {
     const [user, setUser] = useState({});
 
-    const { request } = useHttp();
+    // const { request } = useHttp();
 
     useEffect(() => {
         const raw =
