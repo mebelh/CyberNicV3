@@ -10,7 +10,7 @@ export default function Lecture({ onLacturesChange, num }) {
 
     useEffect(() => {
         onLacturesChange(num, lecture);
-    }, [lecture, num]);
+    }, [lecture]);
 
     return (
         <div key={num} className="Lecture">
