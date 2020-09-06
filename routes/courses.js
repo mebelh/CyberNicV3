@@ -64,7 +64,6 @@ router.get("/:id", async (req, res) => {
 
     if (token && token !== 'undefined') {
         const parseToken = jwt.decode(token, config.get("jwtSecret"));
-        config.get('asd')
         const user = (await User.findOne({ _id: parseToken.userId })) || {
             courses: [],
         };
