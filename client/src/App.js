@@ -1,64 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, useCallback} from "react"
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
-import Home from "./components/pages/Home";
-import Course from "./components/pages/Course";
-// import CourseInfo from "components/pages/Course_info";
-import SignIn from "./components/pages/auth/SignIn";
-import SignUp from "./components/pages/auth/SignUp";
-import SignOut from "./components/auth/SignOut";
-import Users from "./components/admin/Users";
-import Films from "./components/pages/Films";
-import AdminHeader from "./components/admin/AdminHeader";
-import AddCourse from "./components/pages/AddCourse";
-import AddFilm from "./components/pages/AddFilm";
-import ElBibl from "./components/pages/ElBiblPage";
+import Home from "./components/pages/Home"
+import Course from "./components/pages/Course"
+import EditCourse from "./components/pages/EditCourse"
+import SignIn from "./components/pages/auth/SignIn"
+import SignUp from "./components/pages/auth/SignUp"
+import SignOut from "./components/auth/SignOut"
+import Users from "./components/admin/Users"
+import Films from "./components/pages/Films"
+import AdminHeader from "./components/admin/AdminHeader"
+import AddCourse from "./components/pages/AddCourse"
+import AddFilm from "./components/pages/AddFilm"
+import ElBibl from "./components/pages/ElBiblPage"
 
-import { Context } from "./context";
+import { Context } from "./context"
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 
-import "./App.scss";
-import Conditions from "components/pages/conditions";
-import { useHttp } from "hooks/http.hook";
+import "./App.scss"
+import Conditions from "components/pages/conditions"
+import { useStorage } from "./hooks/storage.hook"
 
 export default function App() {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({ login: "" })
 
-    // const { request } = useHttp();
+    const { storage } = useStorage()
 
     useEffect(() => {
-        const raw =
-            localStorage.getItem("user") || JSON.stringify({ login: "" });
-
-        let parseRaw = JSON.parse(raw);
-
+        let parseRaw = storage('user') || user
         setUser(parseRaw);
+    }, [])
 
-        // if (!parseRaw.userId) {
-        //     request("/api/admin/relogin", "POST", {
-        //         login: parseRaw.login,
-        //     }).then((data) => {
-        //         if (!data) return setUser({});
-        //         setUser(data);
-        //     });
-        // } else {
-        //     setUser(JSON.parse(parseRaw));
-        // }
-    }, []);
+    useEffect(
+        () => {
+            storage('user', user)
+        },
+    [user])
 
-    useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(user));
-    }, [user]);
-
-    const onUserLogin = (user) => {
-        setUser(user);
-    };
+    const logOut = useCallback(() => {
+        setUser({ login: "" })
+        window.location.replace('/')
+    }, [])
 
     return (
-        <Context.Provider value={{ onUserLogin, setUser, user }}>
+        <Context.Provider value={{ setUser, user, logOut }}>
             <div className="App">
                 <Header />
                 <AdminHeader />
@@ -68,6 +56,7 @@ export default function App() {
                             <Home />
                         </Route>
 
+                        <Route path="/course/:id/edit" component={EditCourse} />
                         <Route path="/course/:id" component={Course} />
 
                         <Route path={"/auth/login"} component={SignIn} />

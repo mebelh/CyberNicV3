@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./style.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import {Context} from "../../context";
 
-export default function SideMenu({ modules, onVideoChange, idActiveLecture }) {
+export default function SideMenu({ modules, onVideoChange, idActiveLecture, match }) {
+    const {user} = useContext(Context)
+    const isAdmin = user.isAdmin
+    const courseId = match.params.id
     const AddLectureInModule = ({ lectures }) => {
         return (
             <div className="list-group">
@@ -72,6 +76,7 @@ export default function SideMenu({ modules, onVideoChange, idActiveLecture }) {
     return (
         <div className="sideMenu">
             <AddModulesInSideMenu modules={modules} />
+            {isAdmin && <a className="btn btn-success sideMenu__modify_button" href={`/course/${courseId}/edit`}>Редактировать курс</a>}
         </div>
     );
 }

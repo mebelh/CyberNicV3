@@ -1,34 +1,23 @@
-import React, { useState } from "react";
-import "./style.scss";
-import AddModules from "./AddModules";
-import Button from "components/Button";
-import { useHttp } from "hooks/http.hook";
+import React, { useState } from "react"
+import "./style.scss"
+import AddModules from "./AddModules"
+import Button from "components/Button"
+import { useHttp } from "hooks/http.hook"
 export default function AddCourse() {
-    const { request } = useHttp();
+    const { request } = useHttp()
 
     const [course, setCourse] = useState({
         courseNameColor: "#ffffff",
-    });
+    })
 
     const onInfAdd = (key, label) => {
-        setCourse({ ...course, [key]: label });
-    };
+        setCourse({ ...course, [key]: label })
+    }
 
     const fetchCourse = async (e) => {
-        e.preventDefault();
-        await request("/api/courses/add", "POST", course);
-        // await fetch("/api/courses/add", {
-        //     method: "POST",
-        //     headers: {
-        //         Accept: "application/json",
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         ...course,
-        //         token: JSON.parse(localStorage.getItem("user")).token,
-        //     }),
-        // });
-    };
+        e.preventDefault()
+        await request("/api/courses/add", "POST", course)
+    }
 
     return (
         <form onSubmit={fetchCourse}>
@@ -188,5 +177,5 @@ export default function AddCourse() {
                 </div>
             </div>
         </form>
-    );
+    )
 }

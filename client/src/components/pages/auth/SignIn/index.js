@@ -10,33 +10,33 @@ import { useHttp } from "hooks/http.hook";
 export default function SignIn() {
     const { request } = useHttp();
 
-    const { onUserLogin } = useContext(Context);
+    const { setUser } = useContext(Context);
 
-    const [user, setUser] = useState({
+    const [loginData, setLoginData] = useState({
         login: "",
         password: "",
     });
 
     const onLoginChange = (login) => {
-        setUser({ ...user, login });
+        setLoginData({ ...loginData, login });
     };
 
     const onPasswordChange = (password) => {
-        setUser({ ...user, password });
+        setLoginData({ ...loginData, password });
     };
 
     const checkLogin = async (e) => {
         e.preventDefault();
 
         try {
-            request("/api/auth/login", "POST", user).then((d) => {
+            request("/api/auth/login", "POST", loginData).then((d) => {
                 console.log(d);
                 if (!d.token) {
                     // Ошибка авторизации
                     return;
                 }
-                onUserLogin(d);
-                window.location.replace("/");
+                setUser(d)
+                window.location.replace(document.referrer);
             });
         } catch (error) {
             console.log(error);

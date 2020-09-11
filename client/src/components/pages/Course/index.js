@@ -47,6 +47,7 @@ export default function Course({ match }) {
                 modules={course.modules}
                 onVideoChange={onVideoChange}
                 idActiveLecture={lecture.idActiveLecture}
+                match={match}
             />{" "}
             <InfoCourse
                 className="Info_course"

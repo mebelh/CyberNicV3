@@ -1,0 +1,26 @@
+.editCourse{
+  background-color: #f8f8f8;
+  margin-bottom: 1rem;
+
+  *:focus{
+    outline: none;
+  }
+
+  &__wrapper{
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #b5b5b5;
+    *{
+      padding: .5rem;
+    }
+    display: grid;
+    grid-template-columns: 13rem auto;
+    margin-bottom: 1rem;
+  }
+  &__edit{
+    border-left: 1px solid #e3e3e3;
+    &:focus{
+      outline: 1px solid #0b4864;
+    }
+  }
+}

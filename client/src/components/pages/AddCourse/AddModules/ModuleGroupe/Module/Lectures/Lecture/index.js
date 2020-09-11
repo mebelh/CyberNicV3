@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "./style.scss";
+import React, { useState, useEffect } from "react"
+import "./style.scss"
 
-export default function Lecture({ onLacturesChange, num }) {
-    const [lecture, setLecture] = useState({});
+export default function Lecture({ onLecturesChange, num }) {
+    const [lecture, setLecture] = useState({})
 
     const onLectureChange = (key, label) => {
-        setLecture({ ...lecture, [key]: label });
-    };
+        setLecture({ ...lecture, [key]: label })
+    }
 
     useEffect(() => {
-        onLacturesChange(num, lecture);
-    }, [lecture]);
+        onLecturesChange(num, lecture)
+    }, [lecture])
 
     return (
         <div key={num} className="Lecture">
@@ -21,7 +21,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLectureChange("name", target.value);
+                        onLectureChange("name", target.value)
                     }}
                 />
             </div>
@@ -32,7 +32,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLectureChange("duration", target.value);
+                        onLectureChange("duration", target.value)
                     }}
                 />
             </div>
@@ -43,7 +43,7 @@ export default function Lecture({ onLacturesChange, num }) {
                     type="text"
                     required
                     onChange={({ target }) => {
-                        onLectureChange("link", target.value);
+                        onLectureChange("link", target.value)
                     }}
                 />
             </div>
