@@ -29,8 +29,23 @@ router.post("/add", async (req, res) => {
 });
 
 router.post('/edit/:id', async (req, res)=>{
+    //Функция выпинывания злодея
+    const goOut = () => res.status(403).json({ message: "Нет доступа!" });
+
+    //Проверка доступа по токену
+    const { token } = req.headers;
+
+    if (!token) return goOut();
+
+    const parseToken = jwt.verify(token, config.get("jwtSecret"));
+
+    if (!parseToken.isAdmin) return goOut();
+
+    //Пользователь - админ, добавляем курс
     await Course.findOneAndUpdate({link: req.params.id}, {...req.body})
     res.status(200)
+
+    res.json({ message: "Курс изменен" });
 })
 
 router.get("/all", async (req, res) => {
