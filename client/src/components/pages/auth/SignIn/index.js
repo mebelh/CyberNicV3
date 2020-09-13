@@ -27,7 +27,6 @@ export default function SignIn() {
 
     const checkLogin = async (e) => {
         e.preventDefault();
-
         try {
             request("/api/auth/login", "POST", loginData).then((d) => {
                 console.log(d);

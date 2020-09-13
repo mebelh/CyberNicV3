@@ -4,3 +4,4 @@ client/node_modules
 client/.package-lock.json
 .package-lock.json
 client/public/ElBibl
+.idea

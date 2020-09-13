@@ -6,7 +6,7 @@ export default function Lectures({ n, changeModule }) {
 
     const [lectures, setLectures] = useState([]);
 
-    const onLacturesChange = (id, lecture) => {
+    const onLecturesChange = (id, lecture) => {
         setLectures([
             ...lectures.slice(0, id),
             lecture,
@@ -20,7 +20,7 @@ export default function Lectures({ n, changeModule }) {
 
     for (let i = 0; i < n; i++) {
         arr.push(
-            <Lecture num={i} onLacturesChange={onLacturesChange} key={i} />
+            <Lecture num={i} onLecturesChange={onLecturesChange} key={i} />
         );
     }
 

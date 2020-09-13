@@ -28,6 +28,11 @@ router.post("/add", async (req, res) => {
     res.json({ message: "Курс добавлен" });
 });
 
+router.post('/edit/:id', async (req, res)=>{
+    await Course.findOneAndUpdate({link: req.params.id}, {...req.body})
+    res.status(200)
+})
+
 router.get("/all", async (req, res) => {
     const courses = await Course.find().select(
         "courseName link backgroundImageLink courseNameColor"
