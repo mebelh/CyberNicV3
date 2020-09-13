@@ -17,6 +17,7 @@ export default function AddCourse() {
     const fetchCourse = async (e) => {
         e.preventDefault()
         await request("/api/courses/add", "POST", course)
+        window.location.replace('/')
     }
 
     return (
